@@ -315,7 +315,7 @@ const PRODUCTS = [
     ],
     destacado: true, etiqueta: "Profesional",
     specs: [
-      { label: "Forma", value: "Híbrida (gota-redonda)" },
+      { label: "Forma", value: "Híbrida (lagrima)" },
       { label: "Balance", value: "Medio-Alto" },
       { label: "Peso", value: "355-375 g" },
       { label: "Núcleo", value: "PRO HD-R" },
