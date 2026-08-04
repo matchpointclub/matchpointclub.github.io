@@ -452,39 +452,59 @@ const PRODUCTS = [
     ],
   },
 
-  // ---------------- BOLSOS ----------------
+ // ---------------- BOLSOS ----------------
   // marca siempre "Bolsos" para que aparezcan agrupados en su propio filtro
   {
-    marca: "Bolsos", modelo: "Paletero Pro X3", precio: 85000,
-    tipo: "bolso", color: "#B08968",
-    destacado: true, etiqueta: "3 paletas",
-    specs: [
-      { label: "Capacidad", value: "3 paletas" },
-      { label: "Material", value: "Poliéster 900D" },
-      { label: "Bolsillos", value: "2 externos" },
-      { label: "Correas", value: "Ajustables + mochila", full: true },
-    ],
-  },
-  {
-    marca: "Bolsos", modelo: "Mochila Match", precio: 62000,
-    tipo: "bolso", color: "#B08968",
-    etiqueta: "2 paletas",
-    specs: [
-      { label: "Capacidad", value: "2 paletas" },
-      { label: "Material", value: "Nylon reforzado" },
-      { label: "Bolsillos", value: "1 térmico" },
-      { label: "Correas", value: "Tipo mochila", full: true },
-    ],
-  },
-  {
-    marca: "Bolsos", modelo: "Bolso Térmico Duo", precio: 48000,
-    tipo: "bolso", color: "#B08968",
-    etiqueta: "1 paleta",
-    specs: [
-      { label: "Capacidad", value: "1 paleta" },
-      { label: "Material", value: "Interior térmico" },
-      { label: "Bolsillos", value: "1 externo" },
-      { label: "Correas", value: "Al hombro", full: true },
-    ],
-  },
+  marca: "Bolsos", modelo: "Mochila Advance 26", precio: 110000,
+  tipo: "bolso", color: "#B08968",
+  destacado: true, etiqueta: "Pequeño",
+  imagenes: ["images/bolsos/mochi advance 26 1.webp",
+    "images/bolsos/mochi advance 26 2.webp",
+    "images/bolsos/mochi advance 26 3.webp",
+    "images/bolsos/mochi advance 26 4.webp"
+    
+  ],
+  specs: [
+    { label: "Tamaño", value: "Pequeño" },
+    { label: "Térmico", value: "No" },
+    { label: "Tipo", value: "Mochila" },
+    { label: "Material", value: "Poliéster resistente", full: true },
+  ],
+},
+
+{
+  marca: "Bolsos", modelo: "Paletero Advance 26", precio: 145000,
+  tipo: "bolso", color: "#B08968",
+  destacado: true, etiqueta: "Mediano",
+  imagenes: ["images/bolsos/advance naranja 26 1.webp",
+    "images/bolsos/advance naranja 26 2.webp",
+    "images/bolsos/advance multi 26 1.webp",
+    "images/bolsos/advance multi 26 2.webp",
+    "images/bolsos/advance rosa 26 1.webp",
+    "images/bolsos/advance rosa 26 2.webp",
+    "images/bolsos/advance verde 26 1.webp",
+    "images/bolsos/advance verde 26 2.webp"
+  ],
+  specs: [
+    { label: "Tamaño", value: "Mediano" },
+    { label: "Térmico", value: "Sí" },
+    { label: "Tipo", value: "Paletero" },
+    { label: "Material", value: "Poliéster reforzado", full: true },
+  ],
+},
+
+{
+  marca: "Bolsos", modelo: "Paletero Casual 26", precio: 170000,
+  tipo: "bolso", color: "#B08968",
+  destacado: true, etiqueta: "Grande",
+  imagenes: ["images/bolsos/casual 26 1.webp",
+    "images/bolsos/casual 26 2.webp",
+  ],
+  specs: [
+    { label: "Tamaño", value: "Grande" },
+    { label: "Térmico", value: "Sí" },
+    { label: "Tipo", value: "Paletero" },
+    { label: "Material", value: "Poliéster de alta resistencia", full: true },
+  ],
+},
 ];
