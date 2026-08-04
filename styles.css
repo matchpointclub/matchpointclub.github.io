@@ -642,3 +642,16 @@ body{
   .lightbox-nav{ width: 38px; height: 38px; font-size: 22px; }
   .lightbox-close{ width: 36px; height: 36px; font-size: 20px; }
 }
+.instagram-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #E1306C;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.instagram-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
