@@ -371,7 +371,7 @@ const PRODUCTS = [
     ],
   },
   {
-    marca: "Head", modelo: "Evo Speed 23", precio: 170000,
+    marca: "Head", modelo: "Evo Speed 23", precio: 168000, precioAnterior: 190000, oferta: true,
     tipo: "paleta", forma: "Lagrima", color: "#4CC9F0",
     imagenes: ["images/paletas/evo speed 23 1.webp",
       "images/paletas/evo speed 23 2.webp"

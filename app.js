@@ -43,17 +43,20 @@ const slug = (s) =>
 
 function renderFilters() {
   // "Bolsos" queda al final del listado de marcas aunque no empiece con A-Z primero
-  const brands = [...new Set(PRODUCTS.map((p) => p.marca))].sort((a, b) => {
+  const brands = [
+  "Ofertas",
+  ...[...new Set(PRODUCTS.map((p) => p.marca))].sort((a, b) => {
     if (a === "Bolsos") return 1;
     if (b === "Bolsos") return -1;
     return a.localeCompare(b);
-  });
+  })
+];
 
   brands.forEach((brand) => {
     const btn = document.createElement("button");
     btn.className = "pill";
     btn.dataset.brand = brand;
-    btn.textContent = brand;
+  btn.textContent = brand === "Ofertas" ? "🔥 Ofertas" : brand;
     filtersInner.appendChild(btn);
   });
 
@@ -295,7 +298,10 @@ function cardTemplate(p) {
       <div class="card-body">
         <h3 class="model">${p.modelo}</h3>
 
-        <div class="price">${money(p.precio)}<small>ARS</small></div>
+        <div class="price">
+          ${p.precioAnterior ? `<span class="old-price">${money(p.precioAnterior)}</span>` : ""}
+          ${money(p.precio)}<small>ARS</small>
+        </div>
 
         <dl class="specs">
           ${specsTemplate(p.specs)}
@@ -305,7 +311,7 @@ function cardTemplate(p) {
 
         <a
           class="contact-btn"
-          href="https://wa.me/3513930460?text=${encodeURIComponent(`Hola! Tengo una consulta sobre ${p.marca} ${p.modelo}.`)}"
+          href="https://wa.me/5493513930460?text=${encodeURIComponent(`Hola! Tengo una consulta sobre ${p.marca} ${p.modelo}.`)}"
           target="_blank">
           Consultar por WhatsApp
         </a>
@@ -315,10 +321,15 @@ function cardTemplate(p) {
   `;
 }
 function getItems() {
-  let items =
-    currentBrand === "Todas"
-      ? [...PRODUCTS]
-      : PRODUCTS.filter((p) => p.marca === currentBrand);
+  let items;
+
+if (currentBrand === "Todas") {
+  items = [...PRODUCTS];
+} else if (currentBrand === "Ofertas") {
+  items = PRODUCTS.filter((p) => p.oferta);
+} else {
+  items = PRODUCTS.filter((p) => p.marca === currentBrand);
+}
 
   if (currentSort === "precio-asc") {
     items.sort((a, b) => a.precio - b.precio);
