@@ -290,8 +290,13 @@ function cardTemplate(p) {
   return `
     <article class="card" style="--accent:${p.color}">
       <div class="card-top">
-        ${p.destacado ? '<span class="badge">Top ventas</span>' : ""}
-        <span class="brand-tag">${p.marca}</span>
+${
+  p.oferta
+    ? '<span class="badge offer">🔥 Oferta</span>'
+    : p.destacado
+      ? '<span class="badge">Top ventas</span>'
+      : ""
+}        <span class="brand-tag">${p.marca}</span>
         ${iconTemplate(p)}
       </div>
 

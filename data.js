@@ -104,6 +104,28 @@ const PRODUCTS = [
       { label: "Cara", value: "Carbon Aluminized 16K", full: true },
     ],
   },
+  {
+  marca: "Adidas", modelo: "Cross It Team CTRL 3.5",
+  precioAnterior: 390000,
+  precio: 350000,
+  oferta: true,
+  tipo: "paleta",
+  forma: "Redonda",
+  color: "#9FCC2E",
+  imagenes: [
+    "images/paletas/cross it team 26 1.webp",
+    "images/paletas/cross it team 26 2.webp",
+    "images/paletas/cross it team 26 3.webp"
+  ],
+  etiqueta: "Intermedio",
+  specs: [
+    { label: "Forma", value: "Redonda" },
+    { label: "Balance", value: "Medio" },
+    { label: "Peso", value: "360-375 g" },
+    { label: "Núcleo", value: "Soft Performance EVA" },
+    { label: "Cara", value: "Fibra de vidrio", full: true },
+  ],
+},
  
   // ---------------- NOX ----------------
  {
