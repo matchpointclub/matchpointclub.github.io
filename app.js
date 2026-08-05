@@ -337,10 +337,24 @@ if (currentBrand === "Todas") {
 }
 
   if (currentSort === "precio-asc") {
-    items.sort((a, b) => a.precio - b.precio);
-  } else if (currentSort === "precio-desc") {
-    items.sort((a, b) => b.precio - a.precio);
-  }
+  items.sort((a, b) => a.precio - b.precio);
+
+} else if (currentSort === "precio-desc") {
+  items.sort((a, b) => b.precio - a.precio);
+
+} else if (currentSort === "nivel") {
+
+  const ordenNivel = {
+    "Iniciación": 1,
+    "Intermedio": 2,
+    "Avanzado": 3,
+    "Profesional": 4
+  };
+
+  items.sort((a, b) => {
+    return (ordenNivel[a.etiqueta] || 99) - (ordenNivel[b.etiqueta] || 99);
+  });
+}
 
   return items;
 }
