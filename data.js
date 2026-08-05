@@ -490,7 +490,58 @@ const PRODUCTS = [
       { label: "Cara", value: "Fibra de Carbono 3K", full: true },
     ],
   },
- 
+ // ---------------- VARLION ----------------
+  {
+    marca: "Varlion", modelo: "LW Hexagon 8.8 23", precio: 135000, precioAnterior: 165000, oferta: true,
+    tipo: "paleta", forma: "Redonda", color: "#1D3557",
+    imagenes: [
+      "images/paletas/lw hexagon 1.webp",
+      "images/paletas/lw hexagon 2.webp",
+      "images/paletas/lw hexagon 3.webp"
+    ],
+    etiqueta: "Iniciación",
+    specs: [
+      { label: "Forma", value: "Redonda" },
+      { label: "Balance", value: "Bajo" },
+      { label: "Peso", value: "345-370 g" },
+      { label: "Núcleo", value: "EVA Hypersoft" },
+      { label: "Cara", value: "Fibra de vidrio", full: true },
+    ],
+  },
+  {
+    marca: "Varlion", modelo: "LW Carbon Goldblack 25", precio: 355000,
+    tipo: "paleta", forma: "Redonda", color: "#1D3557",
+    imagenes: [
+      "images/paletas/lw gold 25 1.webp",
+      "images/paletas/lw gold 25 2.webp",
+      "images/paletas/lw gold 25 3.webp"
+    ],
+    etiqueta: "Intermedio",
+    specs: [
+      { label: "Forma", value: "Redonda" },
+      { label: "Balance", value: "Medio-Bajo" },
+      { label: "Peso", value: "345-360 g" },
+      { label: "Núcleo", value: "EVA Soft" },
+      { label: "Cara", value: "Carbono 7 Rhombus (12K)", full: true },
+    ],
+  },
+  {
+    marca: "Varlion", modelo: "LW Carbon TI 25", precio: 290000,
+    tipo: "paleta", forma: "Redonda", color: "#1D3557",
+    imagenes: [
+      "images/paletas/lw carbon 25 1.webp",
+      "images/paletas/lw carbon 25 2.webp",
+      "images/paletas/lw carbon 25 3.webp"
+    ],
+    etiqueta: "Intermedio",
+    specs: [
+      { label: "Forma", value: "Redonda" },
+      { label: "Balance", value: "Medio-Bajo" },
+      { label: "Peso", value: "345-360 g" },
+      { label: "Núcleo", value: "EVA Softcolor" },
+      { label: "Cara", value: "Fibra de carbono + vidrio", full: true },
+    ],
+  },
   // ---------------- BOLSOS ----------------
   // marca siempre "Bolsos" para que aparezcan agrupados en su propio filtro
   {
