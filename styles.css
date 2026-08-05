@@ -655,3 +655,14 @@ body{
   opacity: 0.8;
   text-decoration: underline;
 }
+.old-price{
+  display:block;
+  font-size:.9rem;
+  color:#999;
+  text-decoration:line-through;
+  margin-bottom:2px;
+}
+.badge.offer{
+  background:#e53935;
+  color:#fff;
+} 

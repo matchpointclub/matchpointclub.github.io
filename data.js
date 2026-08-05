@@ -190,7 +190,7 @@ const PRODUCTS = [
     ],
   },
   {
-    marca: "Bullpadel", modelo: "Vertex 05 26", precio: 500000,
+    marca: "Bullpadel", modelo: "Vertex 05 26", precio: 480000,
     tipo: "paleta", forma: "Diamante", color: "#9FCC2E",
     imagenes:  ["images/paletas/vertex 05 26 2.webp",
       "images/paletas/vertex 05 26 1.webp",
@@ -207,7 +207,7 @@ const PRODUCTS = [
     ],
   },
   {
-    marca: "Bullpadel", modelo: "Flow 26", precio: 380000,
+    marca: "Bullpadel", modelo: "Flow 26", precio: 350000,
     tipo: "paleta", forma: "Diamante", color: "#9FCC2E",
     imagenes:  ["images/paletas/flow26 1.webp",
       "images/paletas/flow26 2.webp",
@@ -223,7 +223,7 @@ const PRODUCTS = [
     ],
   },
   {
-    marca: "Bullpadel", modelo: "Vertex 05 comfort 26", precio: 370000,
+    marca: "Bullpadel", modelo: "Vertex 05 comfort 26", precio: 350000,
     tipo: "paleta", forma: "Diamante", color: "#9FCC2E",
     imagenes:  ["images/paletas/vertex05 comfort 26 1.webp",
       "images/paletas/vertex05 comfort 26 2.webp",
@@ -239,7 +239,7 @@ const PRODUCTS = [
     ],
   },
   {
-    marca: "Bullpadel", modelo: "XPLO Comfort 26", precio: 365000,
+    marca: "Bullpadel", modelo: "XPLO Comfort 26", precio: 345000,
     tipo: "paleta", forma: "Diamante", color: "#9FCC2E",
     imagenes:  ["images/paletas/xplo comfort 26 1.webp",
       "images/paletas/xplo comfort 26 2.webp",
@@ -255,7 +255,7 @@ const PRODUCTS = [
     ],
   },
   {
-    marca: "Bullpadel", modelo: "Hack 04 Comfort 26", precio: 350000,
+    marca: "Bullpadel", modelo: "Hack 04 Comfort 26", precio: 330000,precioAnterior: 365000,oferta: true,
     tipo: "paleta", forma: "Diamante", color: "#9FCC2E",
     imagenes:  ["images/paletas/hack 04 comfort 26 1.webp",
       "images/paletas/hack 04 comfort 26 2.webp",
@@ -305,7 +305,7 @@ const PRODUCTS = [
     ],
   },
   {
-  marca: "Bullpadel", modelo: "Neuron TF 24", precio: 425000,
+  marca: "Bullpadel", modelo: "Neuron TF 24", precio: 425000, precioAnterior: 515000,oferta: true,
   tipo: "paleta", forma: "Lágrima", color: "#9FCC2E",
   imagenes: [
     "images/paletas/neuron tf 24 1.webp",
@@ -388,7 +388,7 @@ const PRODUCTS = [
  
 
   // ---------------- PROGO ----------------
- {
+   {
     marca: "Pro Go", modelo: "Gelidis Drive 26", precio: 190000,
     tipo: "paleta", forma: "Lagrima", color: "#FF5A5F",
     imagenes: ["images/paletas/gelidis 26 1.webp",
@@ -420,7 +420,7 @@ const PRODUCTS = [
   },
 
   // ---------------- URICH ----------------
- {
+  {
     marca: "Urich", modelo: "Iron Hard 26", precio: 245000,
     tipo: "paleta", forma: "Redonda", color: "#2EC4B6",
     imagenes: ["images/paletas/iron hard 26 1.webp",
@@ -469,7 +469,7 @@ const PRODUCTS = [
     ],
   },
  
- // ---------------- BOLSOS ----------------
+  // ---------------- BOLSOS ----------------
   // marca siempre "Bolsos" para que aparezcan agrupados en su propio filtro
   {
   marca: "Bolsos", modelo: "Mochila Advance 26", precio: 110000,
@@ -574,5 +574,5 @@ const PRODUCTS = [
     { label: "Tipo", value: "Paletero" },
     { label: "Material", value: "Poliéster resistente", full: true },
   ],
-},  
+},
 ];
