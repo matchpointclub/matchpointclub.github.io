@@ -150,7 +150,7 @@ function iconTemplate(p) {
         : "";
 
     return `
-      <div class="photo-slider" data-index="0" data-count="${images.length}">
+      <div class="photo-slider" data-index="0" data-count="${images.length}" data-marca="${p.marca}" data-modelo="${p.modelo}">
         <div class="slider-track">${slides}</div>
         ${dots}
       </div>`;
@@ -182,16 +182,18 @@ function updateLightbox() {
   lightboxCounter.textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
 }
 
-function openLightbox(images, startIndex) {
+function openLightbox(images, startIndex, producto) {
   lightboxImages = images;
   lightboxIndex = ((startIndex % images.length) + images.length) % images.length;
   updateLightbox();
   lightbox.hidden = false;
   document.body.style.overflow = "hidden";
-  gtag('event', 'ver_producto', {
-  producto: producto.modelo,
-  marca: producto.marca
-});
+  if (producto) {
+    gtag('event', 'ver_producto', {
+      producto: producto.modelo,
+      marca: producto.marca
+    });
+  }
 }
 
 function closeLightbox() {
@@ -258,7 +260,8 @@ function initSliderInteractions() {
     const slider = e.target.closest(".photo-slider");
     if (slider && !justSwiped) {
       const images = Array.from(slider.querySelectorAll(".slide")).map((img) => img.src);
-      openLightbox(images, Number(slider.dataset.index));
+      const producto = { marca: slider.dataset.marca, modelo: slider.dataset.modelo };
+      openLightbox(images, Number(slider.dataset.index), producto);
     }
     justSwiped = false;
   });
