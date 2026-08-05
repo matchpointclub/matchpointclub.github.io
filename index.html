@@ -28,27 +28,29 @@
   </header>
 
   <!-- ===== FILTROS ===== -->
-  <nav class="filters" id="filters">
-    <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filterPanel">
-      <span class="filter-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
-      <span id="filterToggleLabel">Marcas</span>
-    </button>
+<nav class="filters" id="filters">
+  <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filterPanel">
+    <span class="filter-toggle-icon" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </span>
+    <span id="filterToggleLabel">Marcas</span>
+  </button>
 
-    <div class="filters-panel" id="filterPanel">
-      <div class="filters-inner">
-        <button class="pill active" data-brand="Todas">Todas</button>
-        <!-- Las marcas se generan automáticamente desde data.js -->
-      </div>
-      <select id="sortSelect" class="sort-select" aria-label="Ordenar por">
-        <option value="relevancia">Ordenar: relevancia</option>
-        <option value="precio-asc">Precio: menor a mayor</option>
-        <option value="precio-desc">Precio: mayor a menor</option>
-      </select>
+  <div class="filters-panel" id="filterPanel">
+    <div class="filters-inner">
+      <button class="pill active" data-brand="Todas">Todas</button>
+      <!-- Las marcas se generan automáticamente desde data.js -->
     </div>
+  </div>
 
-    <div class="filters-count" id="resultCount"></div>
-  </nav>
+  <select id="sortSelect" class="sort-select" aria-label="Ordenar por">
+    <option value="relevancia">Ordenar: relevancia</option>
+    <option value="precio-asc">Precio: menor a mayor</option>
+    <option value="precio-desc">Precio: mayor a menor</option>
+  </select>
 
+  <div class="filters-count" id="resultCount"></div>
+</nav>
   <!-- ===== GRILLA DE PRODUCTOS ===== -->
   <main class="grid" id="grid"></main>
 
@@ -79,6 +81,5 @@
 
   <script src="data.js"></script>
   <script src="app.js"></script>
-
 </body>
 </html>
