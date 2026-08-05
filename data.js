@@ -371,87 +371,87 @@ const PRODUCTS = [
  
 
   // ---------------- PROGO ----------------
-  {
-    marca: "Progo", modelo: "Fusion X", precio: 178000,
-    tipo: "paleta", forma: "Diamante", color: "#FF5A5F",
-    imagenes: [],
-    etiqueta: "Avanzado",
-    specs: [
-      { label: "Forma", value: "Diamante" },
-      { label: "Balance", value: "Alto" },
-      { label: "Peso", value: "360-370 g" },
-      { label: "Núcleo", value: "Goma EVA Hard" },
-      { label: "Cara", value: "Fibra de carbono", full: true },
-    ],
-  },
-  {
-    marca: "Progo", modelo: "Strike", precio: 142000,
+ {
+    marca: "Pro Go", modelo: "Gelidis Drive 26", precio: 190000,
     tipo: "paleta", forma: "Lagrima", color: "#FF5A5F",
-    imagenes: [],
+    imagenes: ["images/paletas/gelidis 26 1.webp",
+      "images/paletas/gelidis 26 2.webp",
+    ],
     etiqueta: "Intermedio",
     specs: [
       { label: "Forma", value: "Lágrima" },
-      { label: "Balance", value: "Medio" },
+      { label: "Balance", value: "Medio-Bajo" },
       { label: "Peso", value: "355-365 g" },
-      { label: "Núcleo", value: "Goma EVA Multieva" },
-      { label: "Cara", value: "Fibra de vidrio", full: true },
+      { label: "Núcleo", value: "Blitz Core (EVA 30)" },
+      { label: "Cara", value: "Fibra Glasstech", full: true },
     ],
   },
   {
-    marca: "Progo", modelo: "Rookie", precio: 79000,
-    tipo: "paleta", forma: "Redonda", color: "#FF5A5F",
-    imagenes: [],
-    etiqueta: "Iniciación",
+    marca: "Pro Go", modelo: "Ignis Drive 26", precio: 240000,
+    tipo: "paleta", forma: "Diamante", color: "#FF5A5F",
+    imagenes: ["images/paletas/ignis 26 1.webp",
+      "images/paletas/ignis 26 2.webp",
+    ],
+    etiqueta: "Avanzado",
     specs: [
-      { label: "Forma", value: "Redonda" },
-      { label: "Balance", value: "Bajo" },
-      { label: "Peso", value: "340-350 g" },
-      { label: "Núcleo", value: "Goma EVA Soft" },
-      { label: "Cara", value: "Fibra de vidrio", full: true },
+      { label: "Forma", value: "Diamante" },
+      { label: "Balance", value: "Medio-Alto" },
+      { label: "Peso", value: "355-365 g" },
+      { label: "Núcleo", value: "Aura Core (EVA 28)" },
+      { label: "Cara", value: "Carbono 3K", full: true },
     ],
   },
 
   // ---------------- URICH ----------------
-  {
-    marca: "Urich", modelo: "Apex", precio: 188000,
-    tipo: "paleta", forma: "Diamante", color: "#2EC4B6",
-    imagenes: [],
-    etiqueta: "Avanzado",
-    specs: [
-      { label: "Forma", value: "Diamante" },
-      { label: "Balance", value: "Alto" },
-      { label: "Peso", value: "360-370 g" },
-      { label: "Núcleo", value: "Goma EVA Hard" },
-      { label: "Cara", value: "Fibra de carbono", full: true },
-    ],
-  },
-  {
-    marca: "Urich", modelo: "Motion", precio: 132000,
-    tipo: "paleta", forma: "Lagrima", color: "#2EC4B6",
-    imagenes: [],
-    etiqueta: "Intermedio",
-    specs: [
-      { label: "Forma", value: "Lágrima" },
-      { label: "Balance", value: "Medio" },
-      { label: "Peso", value: "355-365 g" },
-      { label: "Núcleo", value: "Goma EVA Multieva" },
-      { label: "Cara", value: "Fibra de vidrio", full: true },
-    ],
-  },
-  {
-    marca: "Urich", modelo: "Start", precio: 74000,
+ {
+    marca: "Urich", modelo: "Iron Hard 26", precio: 245000,
     tipo: "paleta", forma: "Redonda", color: "#2EC4B6",
-    imagenes: [],
-    etiqueta: "Iniciación",
+    imagenes: ["images/paletas/iron hard 26 1.webp",
+      "images/paletas/iron hard 26 2.webp",
+      "images/paletas/iron hard 26 3.webp"
+    ],
+    etiqueta: "Avanzado",
     specs: [
       { label: "Forma", value: "Redonda" },
       { label: "Balance", value: "Bajo" },
-      { label: "Peso", value: "340-350 g" },
-      { label: "Núcleo", value: "Goma EVA Soft" },
-      { label: "Cara", value: "Fibra de vidrio", full: true },
+      { label: "Peso", value: "345-370 g" },
+      { label: "Núcleo", value: "EVA 30 (dureza media)" },
+      { label: "Cara", value: "Fibra de Carbono 3K", full: true },
     ],
   },
-
+  {
+    marca: "Urich", modelo: "Fusion Hard 26", precio: 260000,
+    tipo: "paleta", forma: "Lagrima", color: "#2EC4B6",
+    imagenes: ["images/paletas/fusion hard 26 1.webp",
+      "images/paletas/fusion hard 26 2.webp",
+      "images/paletas/fusion hard 26 3.webp"
+    ],
+    etiqueta: "Avanzado",
+    specs: [
+      { label: "Forma", value: "Híbrida (Diamante + Lágrima)" },
+      { label: "Balance", value: "Medio-Alto" },
+      { label: "Peso", value: "360-380 g" },
+      { label: "Núcleo", value: "Goma V50 (alta dureza)" },
+      { label: "Cara", value: "Fibra de Carbono 3K", full: true },
+    ],
+  },
+  {
+    marca: "Urich", modelo: "Fusion Flex Gris 26", precio: 290000,
+    tipo: "paleta", forma: "Lagrima", color: "#2EC4B6",
+    imagenes: ["images/paletas/fusion flex 26 1.webp",
+      "images/paletas/fusion flex 26 2.webp",
+      "images/paletas/fusion flex 26 3.webp"
+    ],
+    destacado: true, etiqueta: "Avanzado",
+    specs: [
+      { label: "Forma", value: "Híbrida (Diamante + Lágrima)" },
+      { label: "Balance", value: "Medio" },
+      { label: "Peso", value: "350-375 g" },
+      { label: "Núcleo", value: "EVA 15 (Foam)" },
+      { label: "Cara", value: "Fibra de Carbono 3K", full: true },
+    ],
+  },
+ 
  // ---------------- BOLSOS ----------------
   // marca siempre "Bolsos" para que aparezcan agrupados en su propio filtro
   {
