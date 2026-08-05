@@ -304,6 +304,23 @@ const PRODUCTS = [
       { label: "Cara", value: "Glaphite", full: true },
     ],
   },
+  {
+  marca: "Bullpadel", modelo: "Neuron TF 24", precio: 425000,
+  tipo: "paleta", forma: "Lágrima", color: "#9FCC2E",
+  imagenes: [
+    "images/paletas/neuron tf 24 1.webp",
+    "images/paletas/neuron tf 24 2.webp",
+    "images/paletas/neuron tf 24 3.webp"
+  ],
+  etiqueta: "Avanzado",
+  specs: [
+    { label: "Forma", value: "Lágrima" },
+    { label: "Balance", value: "Medio" },
+    { label: "Peso", value: "355-365 g" },
+    { label: "Núcleo", value: "MultiEVA" },
+    { label: "Cara", value: "Xtend Carbon 3K", full: true },
+  ],
+},
 
   // ---------------- SANÉ ----------------
   {
