@@ -507,4 +507,55 @@ const PRODUCTS = [
     { label: "Material", value: "Poliéster de alta resistencia", full: true },
   ],
 },
+{
+  marca: "Bolsos", modelo: "Vertex Negro", precio: 230000,
+  tipo: "bolso", color: "#B08968",
+  destacado: true, etiqueta: "Grande",
+  imagenes: ["images/bolsos/vertex negro 1.webp",
+    "images/bolsos/vertex negro 2.webp",
+    "images/bolsos/vertex negro 3.webp"  ],
+  specs: [
+    { label: "Tamaño", value: "Grande" },
+    { label: "Térmico", value: "Sí (doble compartimento)" },
+    { label: "Tipo", value: "Paletero" },
+    { label: "Material", value: "Poliéster 1680D", full: true },
+  ],
+},
+
+{
+  marca: "Bolsos", modelo: "ML10 Team", precio: 170000,
+  tipo: "bolso", color: "#B08968",
+  destacado: true, etiqueta: "Grande",
+  imagenes: ["images/bolsos/ml10 team 1.webp",
+    "images/bolsos/ml10 team 2.webp",
+    "images/bolsos/ml10 team 3.webp",
+    "images/bolsos/ml10 team 4.webp"
+  ],
+  specs: [
+    { label: "Tamaño", value: "Grande" },
+    { label: "Térmico", value: "Sí (ThermoTech)" },
+    { label: "Tipo", value: "Paletero" },
+    { label: "Material", value: "Poliéster", full: true },
+  ],
+},
+
+{
+  marca: "Bolsos", modelo: "Drive", precio: 105000,
+  tipo: "bolso", color: "#B08968",
+  destacado: true, etiqueta: "Mediano",
+  imagenes: ["images/bolsos/drive 1.webp",
+    "images/bolsos/drive 2.webp",
+    "images/bolsos/drive 3.webp",
+    "images/bolsos/drive 4.webp",
+    "images/bolsos/drive 5.webp",
+    "images/bolsos/drive 6.webp",
+    "images/bolsos/drive 7.webp"
+  ],
+  specs: [
+    { label: "Tamaño", value: "Mediano" },
+    { label: "Térmico", value: "Si" },
+    { label: "Tipo", value: "Paletero" },
+    { label: "Material", value: "Poliéster resistente", full: true },
+  ],
+},  
 ];
