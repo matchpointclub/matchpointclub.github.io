@@ -68,6 +68,9 @@ function renderFilters() {
       .forEach((p) => p.classList.remove("active"));
     btn.classList.add("active");
     currentBrand = btn.dataset.brand;
+    gtag('event', 'filtrar_marca', {
+  marca: currentBrand
+});
     filterToggleLabel.textContent = currentBrand === "Todas" ? "Marcas" : currentBrand;
     closeFilterPanel();
     render();
@@ -185,6 +188,10 @@ function openLightbox(images, startIndex) {
   updateLightbox();
   lightbox.hidden = false;
   document.body.style.overflow = "hidden";
+  gtag('event', 'ver_producto', {
+  producto: producto.modelo,
+  marca: producto.marca
+});
 }
 
 function closeLightbox() {
