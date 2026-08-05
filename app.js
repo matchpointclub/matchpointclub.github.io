@@ -287,33 +287,33 @@ function cardTemplate(p) {
   return `
     <article class="card" style="--accent:${p.color}">
       <div class="card-top">
-        ${p.oferta
-          ? '<span class="badge offer">🔥 Oferta</span>'
-          : p.destacado
-            ? '<span class="badge">Top ventas</span>'
-            : ""
-        }
+        ${p.destacado ? '<span class="badge">Top ventas</span>' : ""}
         <span class="brand-tag">${p.marca}</span>
         ${iconTemplate(p)}
       </div>
+
       <div class="card-body">
         <h3 class="model">${p.modelo}</h3>
-        <div class="price">
-          ${p.precioAnterior
-            ? `<span class="old-price">${money(p.precioAnterior)}</span>`
-            : ""}
-          ${money(p.precio)}<small>ARS</small>
-        </div>
+
+        <div class="price">${money(p.precio)}<small>ARS</small></div>
+
         <dl class="specs">
           ${specsTemplate(p.specs)}
         </dl>
 
         ${p.etiqueta ? `<span class="level">${p.etiqueta}</span>` : ""}
+
+        <a
+          class="contact-btn"
+          href="https://wa.me/3513930460?text=${encodeURIComponent(`Hola! Tengo una consulta sobre ${p.marca} ${p.modelo}.`)}"
+          target="_blank">
+          Consultar por WhatsApp
+        </a>
+
       </div>
     </article>
   `;
 }
-
 function getItems() {
   let items =
     currentBrand === "Todas"

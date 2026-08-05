@@ -666,3 +666,19 @@ body{
   background:#e53935;
   color:#fff;
 } 
+.contact-btn{
+    display:block;
+    margin-top:14px;
+    padding:10px;
+    background:#25D366;
+    color:#fff;
+    text-align:center;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+    transition:.2s;
+}
+
+.contact-btn:hover{
+    background:#1da851;
+}
