@@ -254,6 +254,8 @@ body{
   background-repeat: no-repeat;
   padding-right: 30px;
   flex: none;
+  margin-left: auto;
+
 }
 .sort-select:hover{ border-color: rgba(20,37,52,.25); }
 
