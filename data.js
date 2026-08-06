@@ -476,7 +476,8 @@ const PRODUCTS = [
   ],
 },
 
-  // ---------------- PROGO ----------------
+
+  // --------------- PROGO ----------------
    {
     marca: "Pro Go", modelo: "Gelidis Drive 26", precio: 190000,
     tipo: "paleta", forma: "Lagrima", color: "#FF5A5F",

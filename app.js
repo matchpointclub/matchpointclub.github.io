@@ -310,7 +310,7 @@ function initSliderInteractions() {
     justSwiped = false;
   });
 
-  // Deslizar con el dedo -> avanza o retrocede según la dirección
+  // Deslizar con el dedo -> avanza o retrocede según la direcció
   let touchStartX = 0;
   let touchSlider = null;
 
