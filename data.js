@@ -441,7 +441,40 @@ const PRODUCTS = [
       { label: "Cara", value: "Fibra de vidrio", full: true },
     ],
   },
- 
+ {
+  marca: "Head", modelo: "Bolt 26", precio: 190000,
+  tipo: "paleta", forma: "Lágrima", color: "#5E8C61",
+  imagenes: [
+    "images/paletas/bolt 26 1.webp",
+    "images/paletas/bolt 26 2.webp"  ],
+  etiqueta: "Iniciación",
+  specs: [
+    { label: "Forma", value: "Lágrima" },
+    { label: "Balance", value: "Medio" },
+    { label: "Peso", value: "360 g" },
+    { label: "Núcleo", value: "Power Foam" },
+    { label: "Cara", value: "Fibra de vidrio", full: true },
+  ],
+},
+{
+  marca: "Head", modelo: "Flash Pro 23", precio: 195000,
+  precioAnterior: 215000,
+  oferta: true,
+  tipo: "paleta", forma: "Lágrima", color: "#2E86AB",
+  imagenes: [
+    "images/paletas/flash 23 1.webp",
+    "images/paletas/flash 23 2.webp",
+    "images/paletas/flash 23 3.webp"
+  ],
+  etiqueta: "Intermedio",
+  specs: [
+    { label: "Forma", value: "Lágrima" },
+    { label: "Balance", value: "Medio" },
+    { label: "Peso", value: "365 g" },
+    { label: "Núcleo", value: "Power Foam" },
+    { label: "Cara", value: "Fibra de vidrio", full: true },
+  ],
+},
 
   // ---------------- PROGO ----------------
    {
