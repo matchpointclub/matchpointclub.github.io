@@ -154,6 +154,7 @@ body{
   border-bottom: 1px solid var(--border);
   padding: 14px 24px;
   display:flex;
+  flex-wrap: wrap;
   align-items:center;
   justify-content: space-between;
   gap: 16px;
@@ -175,7 +176,39 @@ body{
   cursor: pointer;
   flex: none;
 }
+/* --- Selector de tipo: Todo / Paletas / Bolsos --- */
+.type-filters{
+  display:flex;
+  gap: 8px;
+  flex: none;
+}
 
+.type-pill{
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: .02em;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  padding: 9px 15px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, border-color .18s ease, transform .12s ease;
+}
+.type-pill:hover{ transform: translateY(-1px); border-color: rgba(20,37,52,.25); }
+.type-pill.active{
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+@media (max-width: 960px){
+  .type-filters{
+    flex: 1 1 100%;
+    order: -1; /* queda primero, arriba del botón de marcas */
+  }
+  .type-pill{ flex: 1; text-align: center; }
+}
 .filter-toggle-icon{
   display: flex;
   flex-direction: column;
@@ -200,6 +233,8 @@ body{
   align-items:center;
   gap: 14px;
   flex: 1;
+  flex-basis: 100%;
+  order: 3;
   min-width: 0;
 }
 

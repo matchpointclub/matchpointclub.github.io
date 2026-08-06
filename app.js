@@ -3,7 +3,7 @@
   --------------------
   No hace falta tocar este archivo para agregar productos nuevos:
   eso se hace en data.js. Este archivo solo dibuja lo que
-  encuentra ahí, y maneja filtro por marca + orden por precio.
+  encuentra ahí, y maneja filtro por tipo + marca + orden por precio.
 */
 
 const grid = document.getElementById("grid");
@@ -14,6 +14,8 @@ const emptyState = document.getElementById("emptyState");
 const filterToggle = document.getElementById("filterToggle");
 const filterPanel = document.getElementById("filterPanel");
 const filterToggleLabel = document.getElementById("filterToggleLabel");
+const typeFilters = document.getElementById("typeFilters");
+const nivelOption = document.getElementById("nivelOption");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 const lightboxCounter = document.getElementById("lightboxCounter");
@@ -25,6 +27,7 @@ let lightboxImages = [];
 let lightboxIndex = 0;
 
 let currentBrand = "Todas";
+let currentType = "todo"; // "todo" | "paleta" | "bolso"
 let currentSort = "relevancia";
 let justSwiped = false;
 
@@ -41,24 +44,31 @@ const slug = (s) =>
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, ""); // saca acentos para usarlo como clase css
 
-function renderFilters() {
-  // "Bolsos" queda al final del listado de marcas aunque no empiece con A-Z primero
-  const brands = [
-  "Ofertas",
-  ...[...new Set(PRODUCTS.map((p) => p.marca))].sort((a, b) => {
-    if (a === "Bolsos") return 1;
-    if (b === "Bolsos") return -1;
-    return a.localeCompare(b);
-  })
-];
+function buildBrandPills() {
+  filtersInner.innerHTML = "";
+
+  // Universo de productos según el tipo elegido (Todo / Paletas / Bolsos)
+  const source =
+    currentType === "todo" ? PRODUCTS : PRODUCTS.filter((p) => p.tipo === currentType);
+
+  // "Bolsos" no es una marca real, así que nunca la mostramos como pill de marca
+  const brandNames = [...new Set(source.filter((p) => p.marca !== "Bolsos").map((p) => p.marca))].sort(
+    (a, b) => a.localeCompare(b)
+  );
+
+  const brands = ["Todas", "Ofertas", ...brandNames];
 
   brands.forEach((brand) => {
     const btn = document.createElement("button");
-    btn.className = "pill";
+    btn.className = "pill" + (brand === currentBrand ? " active" : "");
     btn.dataset.brand = brand;
-  btn.textContent = brand === "Ofertas" ? "🔥 Ofertas" : brand;
+    btn.textContent = brand === "Ofertas" ? "🔥 Ofertas" : brand;
     filtersInner.appendChild(btn);
   });
+}
+
+function renderFilters() {
+  buildBrandPills();
 
   filtersInner.addEventListener("click", (e) => {
     const btn = e.target.closest(".pill");
@@ -72,6 +82,40 @@ function renderFilters() {
   marca: currentBrand
 });
     filterToggleLabel.textContent = currentBrand === "Todas" ? "Marcas" : currentBrand;
+    closeFilterPanel();
+    render();
+  });
+}
+
+function updateSortOptions() {
+  // "Nivel de juego" no aplica a bolsos: se oculta y, si estaba elegido, se resetea el orden
+  if (currentType === "bolso") {
+    nivelOption.hidden = true;
+    if (currentSort === "nivel") {
+      currentSort = "relevancia";
+      sortSelect.value = "relevancia";
+    }
+  } else {
+    nivelOption.hidden = false;
+  }
+}
+
+function renderTypeFilters() {
+  typeFilters.addEventListener("click", (e) => {
+    const btn = e.target.closest(".type-pill");
+    if (!btn) return;
+    typeFilters
+      .querySelectorAll(".type-pill")
+      .forEach((p) => p.classList.remove("active"));
+    btn.classList.add("active");
+    currentType = btn.dataset.type;
+    currentBrand = "Todas"; // al cambiar de tipo, reseteamos el filtro de marca
+    filterToggleLabel.textContent = "Marcas";
+
+    gtag('event', 'filtrar_tipo', { tipo: currentType });
+
+    buildBrandPills();
+    updateSortOptions();
     closeFilterPanel();
     render();
   });
@@ -335,36 +379,33 @@ ${
     </article>
   `;
 }
-function getItems() {
-  let items;
 
-if (currentBrand === "Todas") {
-  items = [...PRODUCTS];
-} else if (currentBrand === "Ofertas") {
-  items = PRODUCTS.filter((p) => p.oferta);
-} else {
-  items = PRODUCTS.filter((p) => p.marca === currentBrand);
-}
+function getItems() {
+  let items = [...PRODUCTS];
+
+  if (currentType !== "todo") {
+    items = items.filter((p) => p.tipo === currentType);
+  }
+
+  if (currentBrand === "Ofertas") {
+    items = items.filter((p) => p.oferta);
+  } else if (currentBrand !== "Todas") {
+    items = items.filter((p) => p.marca === currentBrand);
+  }
 
   if (currentSort === "precio-asc") {
-  items.sort((a, b) => a.precio - b.precio);
-
-} else if (currentSort === "precio-desc") {
-  items.sort((a, b) => b.precio - a.precio);
-
-} else if (currentSort === "nivel") {
-
-  const ordenNivel = {
-    "Iniciación": 1,
-    "Intermedio": 2,
-    "Avanzado": 3,
-    "Profesional": 4
-  };
-
-  items.sort((a, b) => {
-    return (ordenNivel[a.etiqueta] || 99) - (ordenNivel[b.etiqueta] || 99);
-  });
-}
+    items.sort((a, b) => a.precio - b.precio);
+  } else if (currentSort === "precio-desc") {
+    items.sort((a, b) => b.precio - a.precio);
+  } else if (currentSort === "nivel") {
+    const ordenNivel = {
+      "Iniciación": 1,
+      "Intermedio": 2,
+      "Avanzado": 3,
+      "Profesional": 4
+    };
+    items.sort((a, b) => (ordenNivel[a.etiqueta] || 99) - (ordenNivel[b.etiqueta] || 99));
+  }
 
   return items;
 }
@@ -377,8 +418,10 @@ function render() {
 }
 
 renderFilters();
+renderTypeFilters();
 renderFilterToggle();
 renderSort();
 initSliderInteractions();
 initLightbox();
+updateSortOptions();
 render();

@@ -36,7 +36,7 @@
       <span class="eyebrow">Catálogo · consultar por stock disponible y precios, ambos pueden variar</span>
       <h1 class="hero-title">TODAS LAS<br>PALETAS<br>PARA TU JUEGO</h1>
       <p class="hero-sub">
-        Las mejores marcas, los mejores precios. Consultar por otros modelos y marcas disponibles
+        Desliza para encontrar las mejores marcas, los mejores precios. Consultar por otros modelos y marcas disponibles
       </p>
     </div>
     <div class="ball" aria-hidden="true"></div>
@@ -44,6 +44,14 @@
 
   <!-- ===== FILTROS ===== -->
 <nav class="filters" id="filters">
+
+  <!-- Selector de tipo: se filtra ANTES que la marca -->
+  <div class="type-filters" id="typeFilters">
+    <button class="type-pill active" data-type="todo">Todo</button>
+    <button class="type-pill" data-type="paleta">Paletas</button>
+    <button class="type-pill" data-type="bolso">Bolsos</button>
+  </div>
+
   <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filterPanel">
     <span class="filter-toggle-icon" aria-hidden="true">
       <span></span><span></span><span></span>
@@ -53,8 +61,7 @@
 
   <div class="filters-panel" id="filterPanel">
     <div class="filters-inner">
-      <button class="pill active" data-brand="Todas">Todas</button>
-      <!-- Las marcas se generan automáticamente desde data.js -->
+      <!-- Las marcas se generan automáticamente desde data.js, según el tipo elegido -->
     </div>
   </div>
 
@@ -62,7 +69,7 @@
     <option value="relevancia">Ordenar: relevancia</option>
     <option value="precio-asc">Precio: menor a mayor</option>
     <option value="precio-desc">Precio: mayor a menor</option>
-    <option value="nivel">Nivel de juego</option>
+    <option value="nivel" id="nivelOption">Nivel de juego</option>
   </select>
 
   <div class="filters-count" id="resultCount"></div>
@@ -75,7 +82,7 @@
   </p>
 
   <footer class="footer">
-  <p>Catálogo informativo. Los precios son de referencia y pueden variar.</p>
+  <p>Catálogo informativo. Los precios son de referencia y pueden variar. Consulta la disponibilidad de los modelos por WhatsApp, hay paletas que pueden estar en la pagina pero no disponibles con stock inmediato</p>
 
   <a href="https://instagram.com/matchpointclub.ok"
      target="_blank"

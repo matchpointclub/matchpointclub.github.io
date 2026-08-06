@@ -343,6 +343,40 @@ const PRODUCTS = [
     { label: "Cara", value: "Xtend Carbon 3K", full: true },
   ],
 },
+{
+  marca: "Bullpadel", modelo: "Icon 25", precio: 365000, precioAnterior: 425000,
+  tipo: "paleta", forma: "Diamante", color: "#142534",
+  oferta: true, etiqueta: "Avanzado",
+  imagenes: [
+    "images/paletas/icon 25 1.webp",
+    "images/paletas/icon 25 2.webp",
+    "images/paletas/icon 25 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Diamante" },
+    { label: "Balance", value: "Alto" },
+    { label: "Peso", value: "365-375 g" },
+    { label: "Núcleo", value: "EVA Foam" },
+    { label: "Cara", value: "Fibra de carbono", full: true },
+  ],
+},
+{
+  marca: "Bullpadel", modelo: "Pearl Cloud 25", precio: 285000, precioAnterior: 325000,
+  tipo: "paleta", forma: "Redonda", color: "#BE9A52",
+  oferta: true, etiqueta: "Intermedio",
+  imagenes: [
+    "images/paletas/pearl cloud 25 1.webp",
+    "images/paletas/pearl cloud 25 2.webp",
+    "images/paletas/pearl cloud 25 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Redonda" },
+    { label: "Balance", value: "Medio" },
+    { label: "Peso", value: "355-365 g" },
+    { label: "Núcleo", value: "EVA Soft" },
+    { label: "Cara", value: "Fibra de vidrio", full: true },
+  ],
+},
 
   // ---------------- SANÉ ----------------
   {
@@ -645,6 +679,54 @@ const PRODUCTS = [
     { label: "Tamaño", value: "Mediano" },
     { label: "Térmico", value: "Si" },
     { label: "Tipo", value: "Paletero" },
+    { label: "Material", value: "Poliéster resistente", full: true },
+  ],
+},
+{
+  marca: "Bolsos", modelo: "Bullpadel W", precio: 125000, precioAnterior: 160000,
+  tipo: "bolso", color: "#142534",
+  oferta: true, etiqueta: "Mediano",
+  imagenes: [
+    "images/bolsos/bullpadel w 1.webp",
+    "images/bolsos/bullpadel w 2.webp",
+    "images/bolsos/bullpadel w 3.webp",
+  ],
+  specs: [
+    { label: "Tamaño", value: "Mediano" },
+    { label: "Térmico", value: "No" },
+    { label: "Tipo", value: "Bolso" },
+    { label: "Material", value: "Poliéster resistente", full: true },
+  ],
+},
+{
+  marca: "Bolsos", modelo: "NIU Tour", precio: 145000,
+  tipo: "bolso", color: "#1D3557",
+  etiqueta: "Grande",
+  imagenes: [
+    "images/bolsos/niu tour 1.webp",
+    "images/bolsos/niu tour 2.webp",
+    "images/bolsos/niu tour 3.webp",
+    "images/bolsos/niu tour 4.webp"
+  ],
+  specs: [
+    { label: "Tamaño", value: "Grande" },
+    { label: "Térmico", value: "No" },
+    { label: "Tipo", value: "Bolso" },
+    { label: "Material", value: "Poliéster resistente", full: true },
+  ],
+},
+{
+  marca: "Bolsos", modelo: "Dropshot Ambition Rojo", precio: 135000, precioAnterior: 160000,
+  tipo: "bolso", color: "#C1272D",
+  oferta: true, etiqueta: "Mediano",
+  imagenes: [
+    "images/bolsos/drop ambition rojo 1.webp",
+    "images/bolsos/drop ambition rojo 2.webp"
+  ],
+  specs: [
+    { label: "Tamaño", value: "Mediano" },
+    { label: "Térmico", value: "No" },
+    { label: "Tipo", value: "Bolso" },
     { label: "Material", value: "Poliéster resistente", full: true },
   ],
 },
