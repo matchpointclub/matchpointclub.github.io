@@ -129,7 +129,7 @@ const PRODUCTS = [
  
   // ---------------- NOX ----------------
  {
-    marca: "Nox", modelo: "AT10 Genius 12K Xtrem 26", precio: 680000,
+    marca: "Nox", modelo: "AT10 Genius 12K Xtrem 26", precio: 610000, oferta: true, precioAnterior: 700000, 
     tipo: "paleta", forma: "Lagrima", color: "#F4A300",
     imagenes: ["images/paletas/at10 12k 26 1.webp",
       "images/paletas/at10 12k 26 2.webp",
@@ -144,6 +144,24 @@ const PRODUCTS = [
       { label: "Cara", value: "Carbon Fiber 12K Alum Xtrem", full: true },
     ],
   },
+  {
+  marca: "Nox", modelo: "AT10 Genius Attack 12K Xtrem 26", precio: 590000,
+  tipo: "paleta", forma: "Diamante", color: "#1B2B37",
+  etiqueta: "Avanzado",
+  imagenes: [
+    "images/paletas/at10 attack 12k 26 1.webp",
+    "images/paletas/at10 attack 12k 26 2.webp",
+    "images/paletas/at10 attack 12k 26 3.webp",
+    "images/paletas/at10 attack 12k 26 4.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Diamante" },
+    { label: "Balance", value: "Alto (head-heavy)" },
+    { label: "Peso", value: "360-375 g" },
+    { label: "Núcleo", value: "HR3 Black EVA" },
+    { label: "Cara", value: "Carbono 12K Alum Xtrem", full: true },
+  ],
+},
   {
     marca: "Nox", modelo: "EA10 Ventus Hybrid 12K 26", precio: 600000,
     tipo: "paleta", forma: "Lagrima", color: "#F4A300",
@@ -610,6 +628,73 @@ const PRODUCTS = [
       { label: "Cara", value: "Fibra de carbono + vidrio", full: true },
     ],
   },
+  //---------JOMA---------//
+  {
+  marca: "Joma", modelo: "Slam Pro", precio: 295000,
+  tipo: "paleta", forma: "Diamante", color: "#142534",
+  etiqueta: "Avanzado",
+  imagenes: [
+    "images/paletas/joma slam pro 1.webp",
+    "images/paletas/joma slam pro 2.webp",
+    "images/paletas/joma slam pro 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Diamante" },
+    { label: "Balance", value: "Alto" },
+    { label: "Peso", value: "355-365 g" },
+    { label: "Núcleo", value: "Black EVA (dura)" },
+    { label: "Cara", value: "Fibra de carbono 3K", full: true },
+  ],
+},
+{
+  marca: "Joma", modelo: "Slam Flex", precio: 265000,
+  tipo: "paleta", forma: "Diamante", color: "#3A5A40",
+  etiqueta: "Intermedio",
+  imagenes: [
+    "images/paletas/joma slam flex 1.webp",
+    "images/paletas/joma slam flex 2.webp",
+    "images/paletas/joma slam flex 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Diamante" },
+    { label: "Balance", value: "Alto" },
+    { label: "Peso", value: "~357 g" },
+    { label: "Núcleo", value: "Black EVA" },
+    { label: "Cara", value: "Fibra de vidrio/grafito FlexSHIELD", full: true },
+  ],
+},
+//-------------------Felina----------------//
+{
+  marca: "Felina", modelo: "F10 Pro", precio: 240000,
+  tipo: "paleta", forma: "Diamante", color: "#1D3557",
+  etiqueta: "Intermedio",
+  imagenes: [
+    "images/paletas/f10 pro 1.webp"  ],
+  specs: [
+    { label: "Forma", value: "Diamante" },
+    { label: "Balance", value: "Alto" },
+    { label: "Peso", value: "350-365 g" },
+    { label: "Núcleo", value: "EVA" },
+    { label: "Cara", value: "Carbono 12K", full: true },
+  ],
+},
+{
+  marca: "Felina", modelo: "Shadow Hunt", precio: 315000,
+  tipo: "paleta", forma: "Lagrima", color: "#142534",
+  etiqueta: "Intermedio",
+  imagenes: [
+    "images/paletas/shadow hunt 1.webp",
+    "images/paletas/shadow hunt 2.webp",
+    "images/paletas/shadow hunt 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Lágrima" },
+    { label: "Balance", value: "Medio" },
+    { label: "Peso", value: "350-370 g" },
+    { label: "Núcleo", value: "EVA Black" },
+    { label: "Cara", value: "Carbono 18K", full: true },
+  ],
+},
   // ---------------- BOLSOS ----------------
   // marca siempre "Bolsos" para que aparezcan agrupados en su propio filtro
   {
@@ -650,7 +735,42 @@ const PRODUCTS = [
     { label: "Material", value: "Poliéster reforzado", full: true },
   ],
 },
+{
+  marca: "Bolsos", modelo: "Bullpadel Vertex W", precio: 140000,
+  tipo: "bolso", color: "#FFFFFF",
+  etiqueta: "Grande",
+  imagenes: [
+    "images/bolsos/mochi vertex w 1.webp",
+    "images/bolsos/mochi vertex w 2.webp"  ],
+  specs: [
+    { label: "Tamaño", value: "Grande" },
+    { label: "Térmico", value: "Sí (2 paletas)" },
+    { label: "Tipo", value: "Mochila" },
+    { label: "Material", value: "Poliéster 1680D, 32x50x22 cm", full: true },
+  ],
+},
+{
+  marca: "Bolsos", modelo: "Joma Torneo", precio: 113000, oferta: true, precioAnterior: 135000,
+  tipo: "bolso", color: "#1B2B37",
+  etiqueta: "Mediano",
+  imagenes: [
+    "images/bolsos/joma torneo 1.webp",
+    "images/bolsos/joma torneo 2.webp",
+    "images/bolsos/joma torneo 3.webp",
+    "images/bolsos/joma torneo 5.webp",
+    "images/bolsos/joma torneo 6.webp",
+    "images/bolsos/joma torneo 7.webp"
 
+
+
+  ],
+  specs: [
+    { label: "Tamaño", value: "Mediano" },
+    { label: "Térmico", value: "No" },
+    { label: "Tipo", value: "Paletero" },
+    { label: "Material", value: "Resistente al agua, correas ajustables", full: true },
+  ],
+},
 {
   marca: "Bolsos", modelo: "Paletero Casual 26", precio: 170000,
   tipo: "bolso", color: "#B08968",
