@@ -636,7 +636,9 @@ const PRODUCTS = [
   imagenes: [
     "images/paletas/joma slam pro 1.webp",
     "images/paletas/joma slam pro 2.webp",
-    "images/paletas/joma slam pro 3.webp"
+    "images/paletas/joma slam pro 3.webp",
+    "images/paletas/joma slam pro 4.webp"
+
   ],
   specs: [
     { label: "Forma", value: "Diamante" },
