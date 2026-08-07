@@ -356,7 +356,7 @@ ${
   p.oferta
     ? '<span class="badge offer">🔥 Oferta</span>'
     : p.destacado
-      ? '<span class="badge">Top ventas</span>'
+      ? '<span class="badge">Destacado</span>'
       : ""
 }        <span class="brand-tag">${p.marca}</span>
         ${iconTemplate(p)}
