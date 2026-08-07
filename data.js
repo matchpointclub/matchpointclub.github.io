@@ -334,7 +334,7 @@ const PRODUCTS = [
       "images/paletas/ionic light 26 2.webp",
       "images/paletas/ionic light 26 3.webp"
      
-    ],
+    ], destacado: true,
     etiqueta: "Intermedio",
     specs: [
       { label: "Forma", value: "Lágrima" },
