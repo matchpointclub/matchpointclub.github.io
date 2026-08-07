@@ -886,4 +886,47 @@ const PRODUCTS = [
     { label: "Material", value: "Poliéster resistente", full: true },
   ],
 },
-];
+//-------------------ZAPATILLAS----------------//
+{
+  marca: "Bullpadel", modelo: "Hack Hybrid Fly", precio: 135000,
+  tipo: "zapatilla", color: "#1D3557",
+  etiqueta: "Todo terreno",
+  imagenes: [
+    "images/zapas/bull hack 1.webp",
+    "images/zapas/bull hack 2.webp",
+    "images/zapas/bull hack 3.webp"
+  ],
+  specs: [
+    { label: "Terreno", value: "Todo terreno" },
+    { label: "Rotox", value: "Sí" },
+  ],
+},
+{
+  marca: "Bullpadel", modelo: "Hack Hybrid Fly", precio: 135000,
+  tipo: "zapatilla", color: "#d1bc8c",
+  etiqueta: "Todo terreno",
+  imagenes: [
+    "images/zapas/bull hack b 1.webp",
+    "images/zapas/bull hack b 2.webp",
+    "images/zapas/bull hack b 3.webp"
+  ],
+  specs: [
+    { label: "Terreno", value: "Todo terreno" },
+    { label: "Rotox", value: "Sí" },
+  ],
+},
+{
+  marca: "Bullpadel", modelo: "Comfort", precio: 130000,
+  tipo: "zapatilla", color: "#6B7883",
+  etiqueta: "Todo terreno",
+  imagenes: [
+    "images/zapas/bull comfort 1.webp",
+    "images/zapas/bull comfort 2.webp",
+    "images/zapas/bull comfort 3.webp"
+  ],
+  specs: [
+    { label: "Terreno", value: "Todo terreno" },
+    { label: "Rotox", value: "No" },
+  ],
+},
+];  
