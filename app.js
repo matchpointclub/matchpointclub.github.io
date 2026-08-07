@@ -88,8 +88,7 @@ function renderFilters() {
 }
 
 function updateSortOptions() {
-  // "Nivel de juego" no aplica a bolsos: se oculta y, si estaba elegido, se resetea el orden
-  if (currentType === "bolso") {
+  if (currentType === "bolso" || currentType === "zapatilla") {
     nivelOption.hidden = true;
     if (currentSort === "nivel") {
       currentSort = "relevancia";
@@ -206,6 +205,15 @@ function iconTemplate(p) {
         <div class="bag-strap"></div>
         <div class="bag-body">
           <div class="bag-zip"></div>
+        </div>
+      </div>`;
+  }
+if (p.tipo === "zapatilla") {
+    return `
+      <div class="shoe">
+        <div class="shoe-sole"></div>
+        <div class="shoe-body">
+          <div class="shoe-laces"></div>
         </div>
       </div>`;
   }

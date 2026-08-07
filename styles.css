@@ -255,7 +255,7 @@ body{
   padding-right: 30px;
   flex: none;
   margin-left: auto;
-  
+
 
 }
 .sort-select:hover{ border-color: rgba(20,37,52,.25); }
@@ -500,7 +500,36 @@ body{
   border-radius: 2px;
   transform: translateX(-50%);
 }
-
+/* --- Silueta de zapatilla --- */
+.shoe{
+  width: 96px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.shoe-body{
+  position: relative;
+  width: 96px;
+  height: 52px;
+  border: 3px solid var(--accent, var(--navy));
+  border-radius: 50px 20px 10px 40px;
+  background: rgba(20,37,52,.03);
+}
+.shoe-laces{
+  position:absolute;
+  left: 22%; right: 40%;
+  top: 30%;
+  height: 0;
+  border-top: 2px dashed var(--accent, var(--navy));
+  opacity: .6;
+}
+.shoe-sole{
+  width: 100px;
+  height: 8px;
+  border-radius: 6px;
+  background: var(--accent, var(--navy));
+  margin-top: -2px;
+}
 .photo-slider{
   position: relative;
   width: 100%;
