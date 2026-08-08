@@ -395,6 +395,59 @@ const PRODUCTS = [
     { label: "Cara", value: "Fibra de vidrio", full: true },
   ],
 },
+{
+  marca: "Bullpadel", modelo: "Vertex 05 Hybrid 26", precio: 480000, precioAnterior: 520000,
+  tipo: "paleta", forma: "Lágrima", color: "#142534",
+  oferta: true, etiqueta: "Profesional",
+  imagenes: [
+    "images/paletas/vertex hybrid 26 1.webp",
+    "images/paletas/vertex hybrid 26 2.webp",
+    "images/paletas/vertex hybrid 26 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Lágrima" },
+    { label: "Balance", value: "Bajo" },
+    { label: "Peso", value: "365-375 g" },
+    { label: "Núcleo", value: "Multieva" },
+    { label: "Cara", value: "Carbono 12K", full: true },
+  ],
+},
+
+{
+  marca: "Bullpadel", modelo: "Vertex 04 Comfort", precio: 290000, precioAnterior: 385000,
+  tipo: "paleta", forma: "Diamante", color: "#7A1F1F",
+  oferta: true, etiqueta: "Avanzado",
+  imagenes: [
+    "images/paletas/vertex comfort 04 1.webp",
+    "images/paletas/vertex comfort 04 2.webp",
+    "images/paletas/vertex comfort 04 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Diamante" },
+    { label: "Balance", value: "Alto" },
+    { label: "Peso", value: "365-375 g" },
+    { label: "Núcleo", value: "Multieva" },
+    { label: "Cara", value: "Fibrix", full: true },
+  ],
+},
+
+{
+  marca: "Bullpadel", modelo: "Vertex 05 Light 26", precio: 450000,
+  tipo: "paleta", forma: "Diamante", color: "#B23A6B",
+  etiqueta: "Avanzado",
+  imagenes: [
+    "images/paletas/vertex w 26 1.webp",
+    "images/paletas/vertex w 26 2.webp",
+    "images/paletas/vertex w 26 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Diamante" },
+    { label: "Balance", value: "Bajo" },
+    { label: "Peso", value: "350-360 g" },
+    { label: "Núcleo", value: "Multieva" },
+    { label: "Cara", value: "Fibrix", full: true },
+  ],
+},
 
   // ---------------- SANÉ ----------------
   {
