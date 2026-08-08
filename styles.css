@@ -322,31 +322,32 @@ body{
     text-align:center;
   }
 
-  .filters-panel{
-    position:absolute;
-    top:100%;
-    left:0;
-    right:0;
-    flex-direction:column;
-    align-items:stretch;
-    gap:10px;
-    background:var(--paper);
-    border-bottom:1px solid var(--border);
-    box-shadow:var(--shadow);
+ .filters-panel{
+  position:static;
+  width:100%;
+  flex-direction:column;
+  align-items:stretch;
+  gap:10px;
+  background:var(--paper);
+  border-bottom:1px solid var(--border);
+  box-shadow:var(--shadow);
 
-    max-height:0;
-    overflow:hidden;
-    opacity:0;
-    padding:0 20px;
-    transition:max-height .25s ease, opacity .2s ease, padding .25s ease;
-  }
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  padding:0 20px;
 
-  .filters-panel.open{
-    max-height:60vh;
-    opacity:1;
-    overflow-y:auto;
-    padding:14px 20px 18px;
-  }
+  transition:max-height .25s ease, opacity .2s ease, padding .25s ease;
+
+  order:1;
+}
+
+.filters-panel.open{
+  max-height:60vh;
+  opacity:1;
+  overflow-y:auto;
+  padding:14px 20px 18px;
+}
 
   .filters-inner{
     flex-direction:column;
@@ -357,7 +358,17 @@ body{
     text-align:left;
   }
 }
+.filter-toggle{
+  order:0;
+}
 
+.sort-select{
+  order:2;
+}
+
+.filters-count{
+  order:3;
+}
 /* =========================================================
    GRID DE PRODUCTOS
    ========================================================= */
