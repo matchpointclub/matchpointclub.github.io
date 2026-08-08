@@ -800,3 +800,63 @@ body{
 .contact-btn:hover{
     background:#1da851;
 }
+/* ===== VOLVER ARRIBA ===== */
+
+.back-to-top{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  background: var(--navy);
+  color: var(--beige);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+  cursor: pointer;
+
+  box-shadow: var(--shadow);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+
+  transition:
+    opacity .2s ease,
+    visibility .2s ease,
+    transform .2s ease,
+    background .2s ease;
+  
+  z-index: 50;
+}
+
+.back-to-top.visible{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover{
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-2px);
+}
+
+/* En celular */
+@media (max-width: 640px){
+  .back-to-top{
+    width: 38px;
+    height: 38px;
+    right: 14px;
+    bottom: 14px;
+    font-size: 14px;
+  }
+}
