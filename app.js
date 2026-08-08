@@ -194,7 +194,9 @@ function iconTemplate(p) {
 
     return `
       <div class="photo-slider" data-index="0" data-count="${images.length}" data-marca="${p.marca}" data-modelo="${p.modelo}">
-        <div class="slider-track">${slides}</div>
+        <div class="slider-viewport">
+          <div class="slider-track">${slides}</div>
+        </div>
         ${dots}
       </div>`;
   }
