@@ -210,11 +210,27 @@ const PRODUCTS = [
       { label: "Cara", value: "Fibra de vidrio 3K", full: true },
     ],
   },
+  {
+  marca: "Nox", modelo: "Future Attack 15K 26", precio: 390000,
+  tipo: "paleta", forma: "Diamante", color: "#1C1C1C",
+  imagenes: [
+    "images/paletas/nox future 26 attack 1.webp"
+  ],
+  etiqueta: "Profesional",
+  specs: [
+    { label: "Forma", value: "Diamante" },
+    { label: "Balance", value: "Alto" },
+    { label: "Peso", value: "360-375 g" },
+    { label: "Núcleo", value: "EV50" },
+    { label: "Cara", value: "Carbono 15K", full: true },
+  ],
+},
+
  
 
   // ---------------- BULLPADEL ----------------
   {
-    marca: "Bullpadel", modelo: "Hack 04 26", precio: 500000,
+    marca: "Bullpadel", modelo: "Hack 04 26", precio: 480000,
     tipo: "paleta", forma: "Diamante", color: "#9FCC2E",
     imagenes: ["images/paletas/hack04 1.webp",
       "images/paletas/hack 04 2.webp",
@@ -311,7 +327,7 @@ const PRODUCTS = [
     ],
   },
   {
-    marca: "Bullpadel", modelo: "Neuron 02 Edge 26", precio: 520000,
+    marca: "Bullpadel", modelo: "Neuron 02 Edge 26", precio: 480000, oferta: true, precioAnterior: 540000,
     tipo: "paleta", forma: "Redonda", color: "#9FCC2E",
     imagenes:  ["images/paletas/neuron edge 02 26 1.webp",
       "images/paletas/neuron edge 02 26 2.webp",
@@ -334,7 +350,7 @@ const PRODUCTS = [
       "images/paletas/ionic light 26 2.webp",
       "images/paletas/ionic light 26 3.webp"
      
-    ], destacado: true,
+    ],destacado: true,
     etiqueta: "Intermedio",
     specs: [
       { label: "Forma", value: "Lágrima" },
@@ -412,9 +428,26 @@ const PRODUCTS = [
     { label: "Cara", value: "Carbono 12K", full: true },
   ],
 },
+{
+  marca: "Bullpadel", modelo: "Hack 04 Hybrid 26", precio: 480000,
+  tipo: "paleta", forma: "Híbrida", color: "#1C1C1C",
+  imagenes: [
+    "images/paletas/hack 04 hybrid 26 1.webp",
+    "images/paletas/hack 04 hybrid 26 2.webp",
+    "images/paletas/hack 04 hybrid 26 3.webp"
+  ],
+  etiqueta: "Avanzado",
+  specs: [
+    { label: "Forma", value: "Híbrida" },
+    { label: "Balance", value: "Medio" },
+    { label: "Peso", value: "365-375 g" },
+    { label: "Núcleo", value: "MultiEVA" },
+    { label: "Cara", value: "Carbono Aluminizado 18K", full: true },
+  ],
+},
 
 {
-  marca: "Bullpadel", modelo: "Vertex 04 Comfort", precio: 290000, precioAnterior: 385000,
+  marca: "Bullpadel", modelo: "Vertex 04 Comfort", precio: 290000, precioAnterior: 375000,
   tipo: "paleta", forma: "Diamante", color: "#7A1F1F",
   oferta: true, etiqueta: "Avanzado",
   imagenes: [
@@ -446,6 +479,23 @@ const PRODUCTS = [
     { label: "Peso", value: "350-360 g" },
     { label: "Núcleo", value: "Multieva" },
     { label: "Cara", value: "Fibrix", full: true },
+  ],
+},
+{
+  marca: "Bullpadel", modelo: "Ionic Control 26", precio: 340000,
+  tipo: "paleta", forma: "Redonda", color: "#4B6B8A",
+  imagenes: [
+    "images/paletas/ionic control 26 1.webp",
+    "images/paletas/ionic control 26 2.webp",
+    "images/paletas/ionic control 26 3.webp"
+  ],
+  etiqueta: "Intermedio",
+  specs: [
+    { label: "Forma", value: "Redonda" },
+    { label: "Balance", value: "Bajo" },
+    { label: "Peso", value: "365-375 g" },
+    { label: "Núcleo", value: "MultiEVA" },
+    { label: "Cara", value: "Glaphite", full: true },
   ],
 },
 
@@ -691,7 +741,6 @@ const PRODUCTS = [
     "images/paletas/joma slam pro 2.webp",
     "images/paletas/joma slam pro 3.webp",
     "images/paletas/joma slam pro 4.webp"
-
   ],
   specs: [
     { label: "Forma", value: "Diamante" },
@@ -982,4 +1031,4 @@ const PRODUCTS = [
     { label: "Rotox", value: "No" },
   ],
 },
-];  
+];
