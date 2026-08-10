@@ -362,7 +362,7 @@ const PRODUCTS = [
   ],
 },
 {
-  marca: "Bullpadel", modelo: "Icon 25", precio: 375000, precioAnterior: 435000,
+  marca: "Bullpadel", modelo: "Icon 25", precio: 380000, precioAnterior: 435000,
   tipo: "paleta", forma: "Diamante", color: "#142534",
   oferta: true, etiqueta: "Avanzado",
   imagenes: [
