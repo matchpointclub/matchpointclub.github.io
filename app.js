@@ -3,7 +3,8 @@
   --------------------
   No hace falta tocar este archivo para agregar productos nuevos:
   eso se hace en data.js. Este archivo solo dibuja lo que
-  encuentra ahí, y maneja filtro por tipo + marca + orden por precio.
+  encuentra ahí, y maneja filtro por tipo + marca + orden por precio
+  + búsqueda por texto (nombre, formato y material).
 */
 
 const grid = document.getElementById("grid");
@@ -16,6 +17,8 @@ const filterPanel = document.getElementById("filterPanel");
 const filterToggleLabel = document.getElementById("filterToggleLabel");
 const typeFilters = document.getElementById("typeFilters");
 const nivelOption = document.getElementById("nivelOption");
+const searchInput = document.getElementById("searchInput");
+const searchClear = document.getElementById("searchClear");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 const lightboxCounter = document.getElementById("lightboxCounter");
@@ -29,7 +32,11 @@ let lightboxIndex = 0;
 let currentBrand = "Todas";
 let currentType = "todo"; // "todo" | "paleta" | "bolso"
 let currentSort = "relevancia";
+let currentSearch = ""; // texto de búsqueda ya normalizado (sin acentos, minúscula)
 let justSwiped = false;
+
+// Etiquetas de specs que consideramos "material" a fines de la búsqueda
+const MATERIAL_LABELS = ["nucleo", "cara", "material"];
 
 const money = (n) =>
   new Intl.NumberFormat("es-AR", {
@@ -42,7 +49,7 @@ const slug = (s) =>
   s
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, ""); // saca acentos para usarlo como clase css
+    .replace(/[\u0300-\u036f]/g, ""); // saca acentos para usarlo como clase css / comparar texto
 
 function buildBrandPills() {
   filtersInner.innerHTML = "";
@@ -148,6 +155,43 @@ function renderFilterToggle() {
 function renderSort() {
   sortSelect.addEventListener("change", () => {
     currentSort = sortSelect.value;
+    render();
+  });
+}
+
+/*
+  Texto "buscable" de un producto: nombre (marca + modelo),
+  formato (forma) y material (specs con label Núcleo / Cara / Material).
+  No incluye marca sola como criterio aparte porque ya existe el filtro
+  de marcas; se suma acá solo para que "nox at10" también matchee.
+*/
+function getSearchableText(p) {
+  const materialText = (p.specs || [])
+    .filter((s) => MATERIAL_LABELS.includes(slug(s.label)))
+    .map((s) => s.value)
+    .join(" ");
+
+  return slug(`${p.marca} ${p.modelo} ${p.forma || ""} ${materialText}`);
+}
+
+function renderSearch() {
+  searchInput.addEventListener("input", () => {
+    const raw = searchInput.value;
+    currentSearch = slug(raw.trim());
+    searchClear.hidden = raw.length === 0;
+
+    if (currentSearch) {
+      gtag('event', 'buscar_texto', { query: raw.trim() });
+    }
+
+    render();
+  });
+
+  searchClear.addEventListener("click", () => {
+    searchInput.value = "";
+    currentSearch = "";
+    searchClear.hidden = true;
+    searchInput.focus();
     render();
   });
 }
@@ -403,6 +447,10 @@ function getItems() {
     items = items.filter((p) => p.marca === currentBrand);
   }
 
+  if (currentSearch) {
+    items = items.filter((p) => getSearchableText(p).includes(currentSearch));
+  }
+
   if (currentSort === "precio-asc") {
     items.sort((a, b) => a.precio - b.precio);
   } else if (currentSort === "precio-desc") {
@@ -424,6 +472,13 @@ function render() {
   const items = getItems();
   grid.innerHTML = items.map(cardTemplate).join("");
   emptyState.hidden = items.length !== 0;
+
+  if (items.length === 0 && currentSearch) {
+    emptyState.textContent = "No encontramos paletas para esa búsqueda. Probá con otro nombre, formato o material.";
+  } else {
+    emptyState.textContent = "No hay paletas para esta marca todavía. Probá con otro filtro.";
+  }
+
   resultCount.textContent = `${items.length} producto${items.length === 1 ? "" : "s"}`;
 }
 
@@ -431,6 +486,7 @@ renderFilters();
 renderTypeFilters();
 renderFilterToggle();
 renderSort();
+renderSearch();
 initSliderInteractions();
 initLightbox();
 updateSortOptions();

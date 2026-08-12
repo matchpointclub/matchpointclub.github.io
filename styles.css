@@ -369,6 +369,69 @@ body{
 .filters-count{
   order:3;
 }
+
+/* --- Buscador por texto (nombre / formato / material) --- */
+.search-wrap{
+  position: relative;
+  flex: 1 1 100%;
+  order: 1;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon{
+  position: absolute;
+  left: 14px;
+  color: var(--muted);
+  font-size: 13px;
+  pointer-events: none;
+}
+
+.search-input{
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 38px 10px 36px;
+  outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.search-input::placeholder{
+  color: var(--muted);
+}
+
+.search-input:focus{
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(190,154,82,.15);
+}
+
+.search-clear{
+  position: absolute;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 50%;
+  background: var(--border);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.search-clear:hover{
+  background: var(--gold);
+  color: var(--navy);
+}
+
 /* =========================================================
    GRID DE PRODUCTOS
    ========================================================= */
@@ -860,6 +923,7 @@ body{
     font-size: 14px;
   }
 }
+
 /* ===== WHATSAPP FLOTANTE ===== */
 .whatsapp-float{
   position: fixed;
@@ -908,5 +972,65 @@ body{
     height: 50px;
     left: 14px;
     bottom: 14px;
+  }
+}
+
+/* =========================================================
+   AJUSTES DE ORDEN — buscador / selector "Ordenar"
+   (van al final del archivo a propósito, para que ganen por
+   encima de las reglas generales de .search-wrap y .sort-select)
+   ========================================================= */
+
+/* En desktop, mismo orden que en mobile:
+   Fila 1: pills de tipo (Todo / Paletas / Bolsos / Zapatillas) solas.
+   Fila 2: panel de marcas (Todas / Ofertas / Adidas / ...).
+   Fila 3: buscador + selector "Ordenar", a la misma altura. */
+@media (min-width: 961px){
+  .type-filters{
+    flex: 1 1 100%;   /* fuerza su propia fila, arriba de todo */
+    order: 0;
+  }
+
+  .filters-panel{
+    flex: 1 1 100%;   /* su propia fila, justo debajo de los tipos */
+    order: 1;
+  }
+
+  .search-wrap{
+    flex: 1 1 auto;   /* deja de forzar 100% de ancho */
+    max-width: 640px; /* más ancho, para que no quede tanto hueco hasta "Ordenar" */
+    order: 2;
+  }
+
+  .sort-select{
+    order: 3;         /* misma fila que el buscador */
+    margin-left: auto; /* pegado al extremo derecho de la pantalla */
+  }
+
+  .filters-count{
+    flex: 1 1 100%;   /* vuelve a su propia fila, debajo */
+    order: 4;
+  }
+}
+
+/* En mobile, el buscador y el selector de orden comparten la
+   misma fila (el buscador toma más ancho, el selector queda
+   angosto a la derecha), y el panel de marcas pasa a ir debajo. */
+@media (max-width: 960px){
+  .search-wrap{
+    flex: 2 1 0;
+    min-width: 0;
+    order: 1;
+  }
+
+  .sort-select{
+    flex: 1 1 0;
+    min-width: 130px;
+    width: auto;
+    order: 1;
+  }
+
+  .filters-panel{
+    order: 2;
   }
 }
