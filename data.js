@@ -731,6 +731,23 @@ const PRODUCTS = [
       { label: "Cara", value: "Fibra de carbono + vidrio", full: true },
     ],
   },
+  {
+  marca: "Varlion", modelo: "LW Orquídea 8.8 25", precio: 265000,
+  tipo: "paleta", forma: "Redonda", color: "#D6A6C4",
+  imagenes: [
+    "images/paletas/lw orquidea 1.webp",
+    "images/paletas/lw orquidea 2.webp",
+    "images/paletas/lw orquidea 3.webp"
+  ],
+  etiqueta: "Iniciación",
+  specs: [
+    { label: "Forma", value: "Redonda" },
+    { label: "Balance", value: "Bajo" },
+    { label: "Peso", value: "345-370 g" },
+    { label: "Núcleo", value: "EVA Hypersoft 38mm" },
+    { label: "Cara", value: "Fibra de vidrio + Carbono (tubular)", full: true },
+  ],
+},
   //---------JOMA---------//
   {
   marca: "Joma", modelo: "Slam Pro", precio: 295000,
