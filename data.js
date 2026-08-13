@@ -819,7 +819,7 @@ const PRODUCTS = [
   // ---------------- BOLSOS ----------------
   // marca siempre "Bolsos" para que aparezcan agrupados en su propio filtro
   {
-  marca: "Bolsos", modelo: "Mochila Advance 26", precio: 110000,
+  marca: "Bullpadel", modelo: "Mochila Advance 26", precio: 110000,
   tipo: "bolso", color: "#B08968",
   destacado: true, etiqueta: "Pequeño",
   imagenes: ["images/bolsos/mochi advance 26 1.webp",
@@ -837,7 +837,7 @@ const PRODUCTS = [
 },
 
 {
-  marca: "Bolsos", modelo: "Paletero Advance 26", precio: 145000,
+  marca: "Bullpadel", modelo: "Paletero Advance 26", precio: 145000,
   tipo: "bolso", color: "#B08968",
   destacado: true, etiqueta: "Mediano",
   imagenes: ["images/bolsos/advance naranja 26 1.webp",
@@ -857,7 +857,7 @@ const PRODUCTS = [
   ],
 },
 {
-  marca: "Bolsos", modelo: "Bullpadel Vertex W", precio: 140000,
+  marca: "Bullpadel", modelo: "Bullpadel Vertex W", precio: 140000,
   tipo: "bolso", color: "#FFFFFF",
   etiqueta: "Grande",
   imagenes: [
@@ -871,7 +871,7 @@ const PRODUCTS = [
   ],
 },
 {
-  marca: "Bolsos", modelo: "Joma Torneo", precio: 113000, oferta: true, precioAnterior: 135000,
+  marca: "Joma", modelo: "Joma Torneo", precio: 113000, oferta: true, precioAnterior: 135000,
   tipo: "bolso", color: "#1B2B37",
   etiqueta: "Mediano",
   imagenes: [
@@ -893,7 +893,7 @@ const PRODUCTS = [
   ],
 },
 {
-  marca: "Bolsos", modelo: "Paletero Casual 26", precio: 170000,
+  marca: "Bullpadel", modelo: "Paletero Casual 26", precio: 170000,
   tipo: "bolso", color: "#B08968",
   destacado: true, etiqueta: "Grande",
   imagenes: ["images/bolsos/casual 26 1.webp",
@@ -907,7 +907,7 @@ const PRODUCTS = [
   ],
 },
 {
-  marca: "Bolsos", modelo: "Vertex Negro", precio: 230000,
+  marca: "Bullpadel", modelo: "Vertex Negro", precio: 230000,
   tipo: "bolso", color: "#B08968",
   destacado: true, etiqueta: "Grande",
   imagenes: ["images/bolsos/vertex negro 1.webp",
@@ -922,7 +922,7 @@ const PRODUCTS = [
 },
 
 {
-  marca: "Bolsos", modelo: "ML10 Team", precio: 170000,
+  marca: "Nox", modelo: "ML10 Team", precio: 170000,
   tipo: "bolso", color: "#B08968",
   destacado: true, etiqueta: "Grande",
   imagenes: ["images/bolsos/ml10 team 1.webp",
@@ -939,7 +939,7 @@ const PRODUCTS = [
 },
 
 {
-  marca: "Bolsos", modelo: "Drive", precio: 105000,
+  marca: "Pro go", modelo: "Drive", precio: 105000,
   tipo: "bolso", color: "#B08968",
   destacado: true, etiqueta: "Mediano",
   imagenes: ["images/bolsos/drive 1.webp",
@@ -958,7 +958,7 @@ const PRODUCTS = [
   ],
 },
 {
-  marca: "Bolsos", modelo: "Bullpadel W", precio: 125000, precioAnterior: 160000,
+  marca: "Bullpadel", modelo: "Bullpadel W", precio: 125000, precioAnterior: 160000,
   tipo: "bolso", color: "#142534",
   oferta: true, etiqueta: "Mediano",
   imagenes: [
@@ -974,7 +974,7 @@ const PRODUCTS = [
   ],
 },
 {
-  marca: "Bolsos", modelo: "NIU Tour", precio: 145000,
+  marca: "NIU", modelo: "NIU Tour", precio: 145000,
   tipo: "bolso", color: "#1D3557",
   etiqueta: "Grande",
   imagenes: [
@@ -991,7 +991,7 @@ const PRODUCTS = [
   ],
 },
 {
-  marca: "Bolsos", modelo: "Dropshot Ambition Rojo", precio: 135000, precioAnterior: 160000,
+  marca: "Dropshot", modelo: "Dropshot Ambition Rojo", precio: 135000, precioAnterior: 160000,
   tipo: "bolso", color: "#C1272D",
   oferta: true, etiqueta: "Mediano",
   imagenes: [
@@ -1003,6 +1003,39 @@ const PRODUCTS = [
     { label: "Térmico", value: "No" },
     { label: "Tipo", value: "Bolso" },
     { label: "Material", value: "Poliéster resistente", full: true },
+  ],
+},
+{
+  marca: "Bullpadel", modelo: "Neuron Premier 26", precio: 165000,
+  tipo: "bolso", color: "#7B1E3A",
+  etiqueta: "Grande",
+  imagenes: [
+    "images/bolsos/mochi neuron 26 1.webp",
+    "images/bolsos/mochi neuron 26 2.webp",
+    "images/bolsos/mochi neuron 26 3.webp"
+  ],
+  specs: [
+    { label: "Tamaño", value: "Grande" },
+    { label: "Térmico", value: "Sí" },
+    { label: "Tipo", value: "Mochila" },
+    { label: "Material", value: "Nylon Dobby + neopreno", full: true },
+  ],
+},
+
+{
+  marca: "Bullpadel", modelo: "Ionic 26", precio: 145000,
+  tipo: "bolso", color: "#1A1A1A",
+  etiqueta: "Mediano",
+  imagenes: [
+    "images/bolsos/mochi ionic 26 1.webp",
+    "images/bolsos/mochi ionic 26 2.webp",
+    "images/bolsos/mochi ionic 26 3.webp"
+  ],
+  specs: [
+    { label: "Tamaño", value: "Mediano" },
+    { label: "Térmico", value: "Sí" },
+    { label: "Tipo", value: "Mochila" },
+    { label: "Material", value: "Poliéster 600D + tejido engomado", full: true },
   ],
 },
 //-------------------ZAPATILLAS----------------//
