@@ -939,7 +939,7 @@ const PRODUCTS = [
 },
 
 {
-  marca: "Pro go", modelo: "Drive", precio: 105000,
+  marca: "Pro Go", modelo: "Drive", precio: 105000,
   tipo: "bolso", color: "#B08968",
   destacado: true, etiqueta: "Mediano",
   imagenes: ["images/bolsos/drive 1.webp",
