@@ -445,6 +445,23 @@ const PRODUCTS = [
     { label: "Cara", value: "Carbono Aluminizado 18K", full: true },
   ],
 },
+{
+  marca: "Bullpadel", modelo: "Xplo 26", precio: 480000,
+  tipo: "paleta", forma: "Diamante", color: "#FF4500",
+  etiqueta: "Profesional",
+  imagenes: [
+    "images/paletas/xplo 26 1.webp",
+    "images/paletas/xplo 26 2.webp",
+    "images/paletas/xplo 26 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Diamante" },
+    { label: "Balance", value: "Alto" },
+    { label: "Peso", value: "365-375 g" },
+    { label: "Núcleo", value: "MultiEVA doble densidad" },
+    { label: "Cara", value: "Xtend Carbon 12K, superficie 3D Grain", full: true },
+  ],
+},
 
 {
   marca: "Bullpadel", modelo: "Vertex 04 Comfort", precio: 290000, precioAnterior: 375000,
@@ -496,6 +513,23 @@ const PRODUCTS = [
     { label: "Peso", value: "365-375 g" },
     { label: "Núcleo", value: "MultiEVA" },
     { label: "Cara", value: "Glaphite", full: true },
+  ],
+},
+{
+  marca: "Bullpadel", modelo: "Onyx Comfort XS 26", precio: 250000,
+  tipo: "paleta", forma: "Diamante", color: "#4A4A4A",
+  etiqueta: "Intermedio",
+  imagenes: [
+    "images/paletas/onyx comfort 26 1.webp",
+    "images/paletas/onyx comfort 26 2.webp",
+    "images/paletas/onyx comfort 26 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Diamante" },
+    { label: "Balance", value: "Alto" },
+    { label: "Peso", value: "360-375 g" },
+    { label: "Núcleo", value: "Black EVA" },
+    { label: "Cara", value: "Graphite (fibra de vidrio + carbono), perfil 38mm", full: true },
   ],
 },
 
