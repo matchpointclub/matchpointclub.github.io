@@ -911,6 +911,22 @@ const PRODUCTS = [
   ],
 },
 {
+  marca: "Bullpadel", modelo: "Paletero Ionic 26", precio: 150000, oferta: true, precioAnterior: 170000,
+  tipo: "bolso", color: "#1A1A1A",
+  etiqueta: "Mediano",
+  imagenes: [
+    "images/bolsos/ionic 26 1.webp",
+    "images/bolsos/ionic 26 2.webp",
+    "images/bolsos/ionic 26 3.webp"
+  ],
+  specs: [
+    { label: "Tamaño", value: "Mediano" },
+    { label: "Térmico", value: "Sí (2 compartimentos, hasta 4 palas)" },
+    { label: "Tipo", value: "Paletero" },
+    { label: "Material", value: "Poliéster 1680D, tejido engomado, 58x30x40 cm", full: true },
+  ],
+},
+{
   marca: "Bullpadel", modelo: "Bullpadel Vertex W", precio: 140000,
   tipo: "bolso", color: "#FFFFFF",
   etiqueta: "Grande",
