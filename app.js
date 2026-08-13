@@ -476,7 +476,7 @@ function render() {
   if (items.length === 0 && currentSearch) {
     emptyState.textContent = "No encontramos paletas para esa búsqueda. Probá con otro nombre, formato o material.";
   } else {
-    emptyState.textContent = "No hay paletas para esta marca todavía. Probá con otro filtro.";
+    emptyState.textContent = "No hay productos con estos filtros todavía. Probá con otro filtro.";
   }
 
   resultCount.textContent = `${items.length} producto${items.length === 1 ? "" : "s"}`;
@@ -593,6 +593,28 @@ backToTop.addEventListener("click", () => {
     return spec ? spec.value : null;
   }
 
+  // Lee el spec { label: "Tipo", value: "Paletero"/"Mochila"/"Bolso" } de cada bolso.
+  // Nota: esto es distinto de "p.tipo" (paleta/bolso/zapatilla), por eso usamos
+  // internamente la clave "tipoBolso" para la respuesta del usuario.
+  function tiposBolsoFor(tipo) {
+    const map = new Map();
+    PRODUCTS.filter((p) => p.tipo === tipo).forEach((p) => {
+      (p.specs || []).forEach((s) => {
+        if (slug(s.label) === "tipo") {
+          const key = slug(s.value);
+          const hasAccent = /[áéíóúÁÉÍÓÚ]/.test(s.value);
+          if (!map.has(key) || hasAccent) map.set(key, s.value);
+        }
+      });
+    });
+    return [...map.values()];
+  }
+
+  function getTipoBolso(p) {
+    const spec = (p.specs || []).find((s) => slug(s.label) === "tipo");
+    return spec ? spec.value : null;
+  }
+
   // --- Definición de pasos ---
   function buildSteps() {
     const base = [
@@ -653,6 +675,16 @@ backToTop.addEventListener("click", () => {
           { value: "cualquiera", label: "Cualquiera" },
         ],
       });
+      base.push({
+        key: "tipoBolso",
+        title: "¿Qué tipo de bolso buscás?",
+        sub: "Paletero, mochila o bolso.",
+        type: "options",
+        options: [
+          ...tiposBolsoFor("bolso").map((t) => ({ value: t, label: t })),
+          { value: "cualquiera", label: "Cualquiera" },
+        ],
+      });
     } else {
       base.push({
         key: "marca",
@@ -697,7 +729,16 @@ backToTop.addEventListener("click", () => {
 
     if (answers.tamano && answers.tamano !== "cualquiera") {
       const tam = getTamano(p);
-      if (tam && slug(tam) === slug(answers.tamano)) score += 4;
+      const TAMANOS = ["Pequeño", "Mediano", "Grande"];
+      if (tam && slug(tam) === slug(answers.tamano)) {
+        score += 4;
+      } else if (tam) {
+        const iPedido = TAMANOS.findIndex((t) => slug(t) === slug(answers.tamano));
+        const iProducto = TAMANOS.findIndex((t) => slug(t) === slug(tam));
+        if (iPedido !== -1 && iProducto !== -1 && Math.abs(iPedido - iProducto) === 1) {
+          score += 1.5; // tamaño "vecino" (ej: pediste Pequeño, esto es Mediano)
+        }
+      }
     }
 
     if (answers.presupuesto && answers.presupuesto !== "nodecir") {
@@ -730,9 +771,9 @@ backToTop.addEventListener("click", () => {
     if (answers.forma && answers.forma !== "cualquiera") {
       if (slug(p.forma || "") !== slug(answers.forma)) return false;
     }
-    if (answers.tamano && answers.tamano !== "cualquiera") {
-      const tam = getTamano(p);
-      if (!tam || slug(tam) !== slug(answers.tamano)) return false;
+    if (answers.tipoBolso && answers.tipoBolso !== "cualquiera") {
+      const tb = getTipoBolso(p);
+      if (!tb || slug(tb) !== slug(answers.tipoBolso)) return false;
     }
     return true;
   }
@@ -845,13 +886,15 @@ backToTop.addEventListener("click", () => {
       forma: answers.forma || "",
       presupuesto: answers.presupuesto || "",
       marca: answers.marca || "",
+      tamano: answers.tamano || "",
+      tipoBolso: answers.tipoBolso || "",
     });
 
     recoBody.innerHTML = `
       <h3 class="reco-results-title">Esto te recomendamos 👇</h3>
       ${
         recs.length && !exacto
-          ? `<p class="reco-step-sub">No encontramos productos que cumplan exactamente con las caracteristicas seleccionadas, pero estas son las opciones más cercanas.</p>`
+          ? `<p class="reco-step-sub">No encontramos productos que cumplan exactamente con el precio y formato/tamaño elegidos, pero estas son las opciones más cercanas.</p>`
           : ""
       }
       ${

@@ -816,6 +816,60 @@ const PRODUCTS = [
     { label: "Cara", value: "Carbono 18K", full: true },
   ],
 },
+//-------------------Niu----------------//
+{
+  marca: "NIU", modelo: "Pro Series Control", precio: 250000,
+  tipo: "paleta", forma: "Redonda", color: "#1D3557",
+  etiqueta: "Intermedio",
+  imagenes: [
+    "images/paletas/pro series control 1.webp",
+    "images/paletas/pro series control 2.webp",
+    "images/paletas/pro series control 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Redonda" },
+    { label: "Balance", value: "Bajo" },
+    { label: "Peso", value: "360-380 g" },
+    { label: "Núcleo", value: "EVA Soft" },
+    { label: "Cara", value: "Carbono 12K, superficie lisa", full: true },
+  ],
+},
+//-------------------Dropshot----------------//
+{
+  marca: "Dropshot", modelo: "Furia Attack 24", precio: 410000,
+  tipo: "paleta", forma: "Lágrima", color: "#FF6600",
+  etiqueta: "Avanzado",
+  imagenes: [
+    "images/paletas/furia attack 24 1.webp",
+    "images/paletas/furia attack 24 2.webp",
+    "images/paletas/furia attack 24 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Lágrima" },
+    { label: "Balance", value: "Medio-Alto" },
+    { label: "Peso", value: "350-370 g" },
+    { label: "Núcleo", value: "EVA Pro" },
+    { label: "Cara", value: "Carbono Plain + TeXtreme 12K", full: true },
+  ],
+},
+
+{
+  marca: "Dropshot", modelo: "Harbour 23", precio: 230000, oferta: true, precioAnterior: 270000,
+  tipo: "paleta", forma: "Lágrima", color: "#2E5A88",
+  etiqueta: "Avanzado",
+  imagenes: [
+    "images/paletas/harbour 23 1.webp",
+    "images/paletas/harbour 23 2.webp",
+    "images/paletas/harbour 23 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Lágrima" },
+    { label: "Balance", value: "Medio-Alto" },
+    { label: "Peso", value: "350-380 g" },
+    { label: "Núcleo", value: "EVA Soft (baja densidad)" },
+    { label: "Cara", value: "Carbono 3K + textura 3D", full: true },
+  ],
+},
   // ---------------- BOLSOS ----------------
   // marca siempre "Bolsos" para que aparezcan agrupados en su propio filtro
   {
