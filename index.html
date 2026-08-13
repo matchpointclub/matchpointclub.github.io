@@ -42,9 +42,22 @@
       <p class="hero-sub">
         Desliza para encontrar las mejores marcas, los mejores precios. Consultar por otros modelos y marcas disponibles
       </p>
+      <button type="button" id="recoOpen" class="hero-reco-btn">
+        <span aria-hidden="true">🎯</span> ¿No sabés qué elegir? Te recomendamos
+      </button>
     </div>
     <div class="ball" aria-hidden="true"></div>
   </header>
+
+  <!-- ===== MODAL RECOMENDADOR ===== -->
+  <div class="reco-modal" id="recoModal" hidden>
+    <div class="reco-overlay" id="recoOverlay"></div>
+    <div class="reco-dialog" role="dialog" aria-modal="true" aria-label="Recomendador de productos">
+      <button type="button" class="reco-close" id="recoClose" aria-label="Cerrar">&times;</button>
+      <div class="reco-progress" id="recoProgress" hidden></div>
+      <div class="reco-body" id="recoBody"></div>
+    </div>
+  </div>
 
   <!-- ===== FILTROS ===== -->
 <nav class="filters" id="filters">

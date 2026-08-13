@@ -1032,3 +1032,280 @@ body{
     order: 2;
   }
 }
+/* =========================================================
+   RECOMENDADOR — botón dentro del hero
+   ========================================================= */
+.hero-reco-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: .02em;
+  color: var(--navy);
+  background: var(--gold);
+  border: none;
+  padding: 13px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  margin: 28px auto 0;
+  box-shadow: 0 12px 28px rgba(190,154,82,.3);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.hero-reco-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(190,154,82,.4);
+}
+
+@media (max-width: 640px){
+  .hero-reco-btn{
+    font-size: 12px;
+    padding: 12px 18px;
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   RECOMENDADOR — modal / quiz
+   ========================================================= */
+.reco-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.reco-modal[hidden]{ display: none; }
+
+.reco-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(10,19,26,.72);
+}
+
+.reco-dialog{
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 560px;
+  max-height: 86vh;
+  overflow-y: auto;
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,.4);
+  padding: 32px 28px 28px;
+}
+
+@media (max-width: 640px){
+  .reco-dialog{ padding: 26px 18px 20px; max-height: 90vh; }
+}
+
+.reco-close{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.reco-close:hover{ background: var(--paper); }
+
+.reco-progress{
+  display: flex;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+.reco-progress-dot{
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border);
+}
+.reco-progress-dot.done{ background: var(--gold); }
+
+.reco-step-title{
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin: 0 0 6px;
+  padding-right: 30px;
+}
+
+.reco-step-sub{
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+
+.reco-options{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.reco-option{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color .15s ease, background .15s ease, transform .12s ease;
+}
+.reco-option:hover{ transform: translateY(-2px); border-color: var(--gold); }
+.reco-option.selected{
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--beige);
+}
+
+.reco-select{
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 24px;
+  appearance: none;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.reco-nav{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.reco-btn{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  border-radius: 999px;
+  padding: 11px 22px;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+}
+.reco-btn.primary{
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--beige);
+  margin-left: auto;
+}
+.reco-btn:disabled{ opacity: .4; cursor: not-allowed; }
+
+/* --- Resultados --- */
+.reco-results-title{
+  font-family: var(--font-display);
+  font-size: 20px;
+  margin: 0 0 18px;
+  padding-right: 30px;
+}
+
+.reco-results-empty{
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  color: var(--muted);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.reco-result-card{
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: var(--paper);
+}
+
+.reco-result-photo{
+  width: 72px;
+  height: 72px;
+  flex: none;
+  border-radius: 10px;
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.reco-result-photo img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.reco-result-info{
+  flex: 1;
+  min-width: 0;
+}
+.reco-result-brand{
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--muted);
+}
+.reco-result-name{
+  font-family: var(--font-display);
+  font-size: 15px;
+  margin: 2px 0 4px;
+}
+.reco-result-price{
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.reco-result-cta{
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  text-decoration: none;
+}
+.reco-result-cta:hover{ background: #1da851; }
+
+.reco-restart{
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}

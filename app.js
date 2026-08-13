@@ -509,3 +509,425 @@ backToTop.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+
+/* =========================================================
+   RECOMENDADOR — quiz de preguntas
+   ========================================================= */
+(function () {
+  const recoOpen = document.getElementById("recoOpen");
+  const recoModal = document.getElementById("recoModal");
+  const recoOverlay = document.getElementById("recoOverlay");
+  const recoClose = document.getElementById("recoClose");
+  const recoProgress = document.getElementById("recoProgress");
+  const recoBody = document.getElementById("recoBody");
+
+  if (!recoOpen || !recoModal) return;
+
+  const TIPO_LABELS = { paleta: "Paleta", bolso: "Bolso", zapatilla: "Zapatilla" };
+  const NIVELES = ["Iniciación", "Intermedio", "Avanzado", "Profesional"];
+
+  const PRESUPUESTOS_POR_TIPO = {
+    paleta: [
+      { id: "hasta200", label: "Hasta $200.000", min: 0, max: 200000 },
+      { id: "200-350", label: "$200.000 – $350.000", min: 200000, max: 350000 },
+      { id: "350-600", label: "$350.000 – $600.000", min: 350000, max: 600000 },
+      { id: "mas600", label: "Más de $600.000", min: 600000, max: Infinity },
+      { id: "nodecir", label: "Prefiero no decir", min: null, max: null },
+    ],
+    bolso: [
+      { id: "hasta100", label: "Hasta $100.000", min: 0, max: 100000 },
+      { id: "100-200", label: "$100.000 – $200.000", min: 100000, max: 200000 },
+      { id: "mas200", label: "Más de $200.000", min: 200000, max: Infinity },
+      { id: "nodecir", label: "Cualquiera", min: null, max: null },
+    ],
+    zapatilla: [
+      { id: "hasta150", label: "Hasta $150.000", min: 0, max: 150000 },
+      { id: "150-250", label: "$150.000 – $250.000", min: 150000, max: 250000 },
+      { id: "mas250", label: "Más de $250.000", min: 250000, max: Infinity },
+      { id: "nodecir", label: "Prefiero no decir", min: null, max: null },
+    ],
+  };
+
+  function presupuestosFor(tipo) {
+    return PRESUPUESTOS_POR_TIPO[tipo] || PRESUPUESTOS_POR_TIPO.paleta;
+  }
+
+  let steps = [];       // pasos calculados según el tipo elegido
+  let stepIndex = 0;
+  let answers = {};
+
+  function brandsFor(tipo) {
+    return [...new Set(PRODUCTS.filter((p) => p.tipo === tipo).map((p) => p.marca))].sort((a, b) =>
+      a.localeCompare(b)
+    );
+  }
+
+  function formasFor(tipo) {
+    const map = new Map(); // key: forma normalizada (sin tildes) -> label a mostrar
+    PRODUCTS.filter((p) => p.tipo === tipo && p.forma).forEach((p) => {
+      const key = slug(p.forma);
+      const hasAccent = /[áéíóúÁÉÍÓÚ]/.test(p.forma);
+      if (!map.has(key) || hasAccent) map.set(key, p.forma);
+    });
+    return [...map.values()];
+  }
+
+  // Busca en los specs de cada producto uno cuyo label sea "Tamaño"
+  // (data.js: { label: "Tamaño", value: "Grande" }) y arma la lista de opciones.
+  function tamanosFor(tipo) {
+    const map = new Map();
+    PRODUCTS.filter((p) => p.tipo === tipo).forEach((p) => {
+      (p.specs || []).forEach((s) => {
+        if (slug(s.label) === "tamano") {
+          const key = slug(s.value);
+          const hasAccent = /[áéíóúÁÉÍÓÚ]/.test(s.value);
+          if (!map.has(key) || hasAccent) map.set(key, s.value);
+        }
+      });
+    });
+    return [...map.values()];
+  }
+
+  function getTamano(p) {
+    const spec = (p.specs || []).find((s) => slug(s.label) === "tamano");
+    return spec ? spec.value : null;
+  }
+
+  // --- Definición de pasos ---
+  function buildSteps() {
+    const base = [
+      {
+        key: "tipo",
+        title: "¿Qué estás buscando?",
+        sub: "Buscaremos recomendarte lo mejor en base a nuestros productos disponibles y a las características que nos brindes. Elegí el tipo de producto para empezar.",
+        type: "options",
+        options: [
+          { value: "paleta", label: "Paleta" },
+          { value: "bolso", label: "Bolso" },
+          { value: "zapatilla", label: "Zapatilla" },
+        ],
+      },
+    ];
+
+    if (!answers.tipo) return base;
+
+    if (answers.tipo === "paleta") {
+      base.push({
+        key: "nivel",
+        title: "¿Cuál es tu nivel de juego?",
+        sub: "Así te recomendamos algo acorde a tu nivel.",
+        type: "options",
+        options: [
+          ...NIVELES.map((n) => ({ value: n, label: n })),
+          { value: "cualquiera", label: "Prefiero no decir" },
+        ],
+      });
+      base.push({
+        key: "forma",
+        title: "¿Qué formato preferís?",
+        sub: "Diamante: potencia. Redonda: control. Lágrima: equilibrio.",
+        type: "options",
+        options: [
+          ...formasFor("paleta").map((f) => ({ value: f, label: f })),
+          { value: "cualquiera", label: "Cualquiera" },
+        ],
+      });
+    }
+
+    base.push({
+      key: "presupuesto",
+      title: "¿Cuál es tu presupuesto?",
+      sub: "Los precios son de referencia y pueden variar.",
+      type: "options",
+      options: presupuestosFor(answers.tipo).map((p) => ({ value: p.id, label: p.label })),
+    });
+
+    if (answers.tipo === "bolso") {
+      base.push({
+        key: "tamano",
+        title: "¿Qué tamaño buscás?",
+        sub: "Elegí la opción que más se ajuste a lo que necesitás.",
+        type: "options",
+        options: [
+          ...tamanosFor("bolso").map((t) => ({ value: t, label: t })),
+          { value: "cualquiera", label: "Cualquiera" },
+        ],
+      });
+    } else {
+      base.push({
+        key: "marca",
+        title: "¿Tenés alguna marca preferida?",
+        sub: "Si no te importa, elegí \"Cualquiera\".",
+        type: "select",
+        options: [
+          { value: "cualquiera", label: "Cualquiera" },
+          ...brandsFor(answers.tipo).map((m) => ({ value: m, label: m })),
+        ],
+      });
+    }
+
+    base.push({ key: "resultado", type: "resultado" });
+
+    return base;
+  }
+
+
+  // --- Scoring ---
+  function scoreProduct(p) {
+    let score = 0;
+
+    // Nivel y marca pesan menos: son preferencias, no restricciones duras.
+    // Si no hay stock que cumpla marca/nivel exactos, el presupuesto y el
+    // formato son los que terminan definiendo la recomendación.
+    if (answers.nivel && answers.nivel !== "cualquiera") {
+      if (p.etiqueta === answers.nivel) score += 1.5;
+      else if (p.etiqueta) {
+        const diff = Math.abs(NIVELES.indexOf(p.etiqueta) - NIVELES.indexOf(answers.nivel));
+        if (diff === 1) score += 0.5;
+      }
+    }
+
+    if (answers.forma && answers.forma !== "cualquiera") {
+      if (slug(p.forma || "") === slug(answers.forma)) score += 4;
+    }
+
+    if (answers.marca && answers.marca !== "cualquiera") {
+      if (p.marca === answers.marca) score += 1.5;
+    }
+
+    if (answers.tamano && answers.tamano !== "cualquiera") {
+      const tam = getTamano(p);
+      if (tam && slug(tam) === slug(answers.tamano)) score += 4;
+    }
+
+    if (answers.presupuesto && answers.presupuesto !== "nodecir") {
+      const rango = presupuestosFor(p.tipo).find((r) => r.id === answers.presupuesto);
+      if (rango) {
+        if (p.precio >= rango.min && p.precio <= rango.max) {
+          score += 4;
+        } else {
+          const mid = rango.max === Infinity ? rango.min * 1.3 : (rango.min + rango.max) / 2;
+          const distRatio = Math.abs(p.precio - mid) / mid;
+          score += Math.max(0, 2.5 - distRatio);
+        }
+      }
+    }
+
+    if (p.destacado) score += 0.3;
+    if (p.oferta) score += 0.3;
+
+    return score;
+  }
+
+  // Precio y formato/tamaño son criterios que SIEMPRE deben cumplirse
+  // si el usuario los eligió (no son solo "preferencias"). Nivel y marca
+  // sí son blandos: influyen en el orden pero no descartan productos.
+  function cumpleCriteriosDuros(p) {
+    if (answers.presupuesto && answers.presupuesto !== "nodecir") {
+      const rango = presupuestosFor(p.tipo).find((r) => r.id === answers.presupuesto);
+      if (rango && !(p.precio >= rango.min && p.precio <= rango.max)) return false;
+    }
+    if (answers.forma && answers.forma !== "cualquiera") {
+      if (slug(p.forma || "") !== slug(answers.forma)) return false;
+    }
+    if (answers.tamano && answers.tamano !== "cualquiera") {
+      const tam = getTamano(p);
+      if (!tam || slug(tam) !== slug(answers.tamano)) return false;
+    }
+    return true;
+  }
+
+  function getRecommendations() {
+    const pool = PRODUCTS.filter((p) => p.tipo === answers.tipo);
+
+    let candidatos = pool.filter(cumpleCriteriosDuros);
+    let exacto = true;
+
+    // Si nadie cumple precio + formato/tamaño exactos, recién ahí
+    // relajamos y mostramos lo más parecido posible (con aviso en la UI).
+    if (candidatos.length === 0) {
+      candidatos = pool;
+      exacto = false;
+    }
+
+    const recs = candidatos
+      .map((p) => ({ p, score: scoreProduct(p) }))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+      .map((x) => x.p);
+
+    return { recs, exacto };
+  }
+
+  // --- Render de pasos ---
+  function renderProgress() {
+    const totalVisible = steps.length - 1; // sin contar "resultado"
+    if (totalVisible <= 0) {
+      recoProgress.hidden = true;
+      return;
+    }
+    recoProgress.hidden = false;
+    recoProgress.innerHTML = Array.from({ length: totalVisible })
+      .map((_, i) => `<span class="reco-progress-dot${i < stepIndex ? " done" : ""}"></span>`)
+      .join("");
+  }
+
+  function renderStep() {
+    const step = steps[stepIndex];
+    renderProgress();
+
+    if (step.type === "resultado") {
+      renderResultado();
+      return;
+    }
+
+    const isSelect = step.type === "select";
+
+    recoBody.innerHTML = `
+      <h3 class="reco-step-title">${step.title}</h3>
+      ${step.sub ? `<p class="reco-step-sub">${step.sub}</p>` : ""}
+      ${
+        isSelect
+          ? `<select class="reco-select" id="recoSelectInput">
+              ${step.options
+                .map((o) => `<option value="${o.value}">${o.label}</option>`)
+                .join("")}
+            </select>`
+          : `<div class="reco-options">
+              ${step.options
+                .map(
+                  (o) =>
+                    `<button type="button" class="reco-option${answers[step.key] === o.value ? " selected" : ""}" data-value="${o.value}">${o.label}</button>`
+                )
+                .join("")}
+            </div>`
+      }
+      <div class="reco-nav">
+        <button type="button" class="reco-btn" id="recoBack" ${stepIndex === 0 ? "disabled" : ""}>Atrás</button>
+        ${
+          isSelect
+            ? `<button type="button" class="reco-btn primary" id="recoNext">Siguiente</button>`
+            : ""
+        }
+      </div>
+    `;
+
+    if (isSelect) {
+      const select = document.getElementById("recoSelectInput");
+      if (answers[step.key]) select.value = answers[step.key];
+      document.getElementById("recoNext").addEventListener("click", () => {
+        answers[step.key] = select.value;
+        goNext();
+      });
+    } else {
+      recoBody.querySelectorAll(".reco-option").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          answers[step.key] = btn.dataset.value;
+          gtag('event', 'recomendador_respuesta', { pregunta: step.key, valor: btn.dataset.value });
+
+          if (step.key === "tipo") {
+            steps = buildSteps();
+          }
+          goNext();
+        });
+      });
+    }
+
+    document.getElementById("recoBack").addEventListener("click", goBack);
+  }
+
+  function renderResultado() {
+    const { recs, exacto } = getRecommendations();
+
+    gtag('event', 'recomendador_resultado', {
+      tipo: answers.tipo,
+      nivel: answers.nivel || "",
+      forma: answers.forma || "",
+      presupuesto: answers.presupuesto || "",
+      marca: answers.marca || "",
+    });
+
+    recoBody.innerHTML = `
+      <h3 class="reco-results-title">Esto te recomendamos 👇</h3>
+      ${
+        recs.length && !exacto
+          ? `<p class="reco-step-sub">No encontramos productos que cumplan exactamente con las caracteristicas seleccionadas, pero estas son las opciones más cercanas.</p>`
+          : ""
+      }
+      ${
+        recs.length
+          ? recs
+              .map((p) => {
+                const img = getImages(p)[0];
+                return `
+              <div class="reco-result-card">
+                <div class="reco-result-photo">
+                  ${img ? `<img src="${img}" alt="${p.marca} ${p.modelo}">` : ""}
+                </div>
+                <div class="reco-result-info">
+                  <div class="reco-result-brand">${p.marca}</div>
+                  <div class="reco-result-name">${p.modelo}</div>
+                  <div class="reco-result-price">${money(p.precio)}</div>
+                </div>
+                <a class="reco-result-cta" target="_blank" aria-label="Consultar por WhatsApp"
+                  href="https://wa.me/5493513930460?text=${encodeURIComponent(`Hola! Vi la recomendación de ${p.marca} ${p.modelo} y quería consultar.`)}">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>`;
+              })
+              .join("")
+          : `<p class="reco-results-empty">No encontramos productos de este tipo todavía. Probá con otro filtro o consultanos por WhatsApp.</p>`
+      }
+      <div class="reco-nav">
+        <button type="button" class="reco-btn" id="recoBack">Atrás</button>
+        <button type="button" class="reco-btn primary" id="recoDone">Listo</button>
+      </div>
+      <button type="button" class="reco-restart" id="recoRestart">Volver a empezar</button>
+    `;
+
+    document.getElementById("recoBack").addEventListener("click", goBack);
+    document.getElementById("recoDone").addEventListener("click", closeReco);
+    document.getElementById("recoRestart").addEventListener("click", () => {
+      answers = {};
+      stepIndex = 0;
+      steps = buildSteps();
+      renderStep();
+    });
+  }
+
+  function goNext() {
+    if (stepIndex < steps.length - 1) {
+      stepIndex++;
+      renderStep();
+    }
+  }
+
+  function goBack() {
+    if (stepIndex > 0) {
+      stepIndex--;
+      renderStep();
+    }
+  }
+
+  function openReco() {
+    answers = {};
+    stepIndex = 0;
+    steps = buildSteps();
+    recoModal.hidden = false;
+    document.body.style.overflow = "hidden";
+    renderStep();
+    gtag('event', 'recomendador_abrir');
+  }
+
+  function closeReco() {
+    recoModal.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  recoOpen.addEventListener("click", openReco);
+  recoClose.addEventListener("click", closeReco);
+  recoOverlay.addEventListener("click", closeReco);
+  document.addEventListener("keydown", (e) => {
+    if (!recoModal.hidden && e.key === "Escape") closeReco();
+  });
+})();

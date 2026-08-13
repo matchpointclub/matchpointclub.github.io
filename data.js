@@ -1048,4 +1048,18 @@ const PRODUCTS = [
     { label: "Rotox", value: "No" },
   ],
 },
+{
+  marca: "Joma", modelo: "Padel Open Negro", precio: 145000,
+  tipo: "zapatilla", color: "#1A1A1A",
+  etiqueta: "Alta competición",
+  imagenes: [
+    "images/zapas/joma open n 1.webp",
+    "images/zapas/joma open n 2.webp",
+    "images/zapas/joma open n 3.webp"
+  ],
+  specs: [
+    { label: "Terreno", value: "Superficie dura" },
+    { label: "Suela", value: "Durability (tacos circulares)" },
+  ],
+},
 ];
