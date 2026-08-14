@@ -961,7 +961,7 @@ const PRODUCTS = [
   ],
 },
 {
-  marca: "Bullpadel", modelo: "Bullpadel Vertex W", precio: 140000,
+  marca: "Bullpadel", modelo: "Bullpadel Vertex W", precio: 145000,
   tipo: "bolso", color: "#FFFFFF",
   etiqueta: "Grande",
   imagenes: [
