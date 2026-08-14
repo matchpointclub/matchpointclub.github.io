@@ -532,6 +532,41 @@ const PRODUCTS = [
     { label: "Cara", value: "Graphite (fibra de vidrio + carbono), perfil 38mm", full: true },
   ],
 },
+{
+  marca: "Bullpadel", modelo: "Onyx Control Woman 25", precio: 145000,
+  tipo: "paleta", forma: "Redonda", color: "#D6A6C4",
+  etiqueta: "Avanzado",
+  imagenes: [
+    "images/paletas/onyx woman control 1.webp",
+    "images/paletas/onyx woman control 2.webp",
+    "images/paletas/onyx woman control 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Redonda" },
+    { label: "Balance", value: "Bajo" },
+    { label: "Peso", value: "360-370 g" },
+    { label: "Núcleo", value: "SoftEVA" },
+    { label: "Cara", value: "Polyglass (fibra de vidrio)", full: true },
+  ],
+},
+
+{
+  marca: "Bullpadel", modelo: "Onyx Power 2.0 Rojo", precio: 165000,
+  tipo: "paleta", forma: "Diamante", color: "#C1272D",
+  etiqueta: "Intermedio",
+  imagenes: [
+    "images/paletas/onyx power 26 1.webp",
+    "images/paletas/onyx power 26 2.webp",
+    "images/paletas/onyx power 26 3.webp"
+  ],
+  specs: [
+    { label: "Forma", value: "Diamante" },
+    { label: "Balance", value: "Alto" },
+    { label: "Peso", value: "360-370 g" },
+    { label: "Núcleo", value: "SoftEVA" },
+    { label: "Cara", value: "Polyglass (fibra de vidrio)", full: true },
+  ],
+},
 
   // ---------------- SANÉ ----------------
   {
