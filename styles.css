@@ -735,7 +735,7 @@ body{
 .lightbox{
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 120;
   background: rgba(10,19,26,.94);
   display: flex;
   align-items: center;
@@ -1270,6 +1270,13 @@ body{
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+.reco-result-photo.clickable{
+  cursor: zoom-in;
+  transition: transform .15s ease;
+}
+.reco-result-photo.clickable:hover{
+  transform: scale(1.05);
 }
 .reco-result-photo img{
   max-width: 100%;

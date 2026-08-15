@@ -358,7 +358,7 @@ const PRODUCTS = [
 {
   marca: "Bullpadel", modelo: "Vertex 05 Hybrid 26", precio: 480000, precioAnterior: 520000,
   tipo: "paleta", forma: "Híbrida", color: "#142534",
-  oferta: true, etiqueta: "Profesional",
+  oferta: true, etiqueta: "Profesional",destacado: true, //con esta etiqueta le doy mas peso en el quiz
   imagenes: [
     "images/paletas/vertex hybrid 26 1.webp",
     "images/paletas/vertex hybrid 26 2.webp",

@@ -476,7 +476,7 @@ function render() {
   if (items.length === 0 && currentSearch) {
     emptyState.textContent = "No encontramos paletas para esa búsqueda. Probá con otro nombre, formato o material.";
   } else {
-    emptyState.textContent = "No hay productos con estos filtros todavía. Probá con otro filtro.";
+    emptyState.textContent = "No hay paletas para esta marca todavía. Probá con otro filtro.";
   }
 
   resultCount.textContent = `${items.length} producto${items.length === 1 ? "" : "s"}`;
@@ -778,6 +778,16 @@ backToTop.addEventListener("click", () => {
     return true;
   }
 
+  // Fisher-Yates: mezcla el array in-place, sin sesgo hacia el orden original.
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
   function getRecommendations() {
     const pool = PRODUCTS.filter((p) => p.tipo === answers.tipo);
 
@@ -791,7 +801,11 @@ backToTop.addEventListener("click", () => {
       exacto = false;
     }
 
-    const recs = candidatos
+    // Barajamos antes de puntuar/ordenar: como el sort de JS es estable,
+    // los productos empatados en puntaje (ej: todo "cualquiera") quedan
+    // en un orden aleatorio distinto en cada consulta, en vez de siempre
+    // el mismo orden en que están cargados en data.js.
+    const recs = shuffle(candidatos)
       .map((p) => ({ p, score: scoreProduct(p) }))
       .sort((a, b) => b.score - a.score)
       .slice(0, 3)
@@ -900,11 +914,11 @@ backToTop.addEventListener("click", () => {
       ${
         recs.length
           ? recs
-              .map((p) => {
+              .map((p, i) => {
                 const img = getImages(p)[0];
                 return `
               <div class="reco-result-card">
-                <div class="reco-result-photo">
+                <div class="reco-result-photo${img ? " clickable" : ""}" data-reco-index="${i}">
                   ${img ? `<img src="${img}" alt="${p.marca} ${p.modelo}">` : ""}
                 </div>
                 <div class="reco-result-info">
@@ -935,6 +949,16 @@ backToTop.addEventListener("click", () => {
       stepIndex = 0;
       steps = buildSteps();
       renderStep();
+    });
+
+    // Tocar la foto de un resultado abre el mismo visor de fotos del catálogo
+    recoBody.querySelectorAll(".reco-result-photo.clickable").forEach((el) => {
+      el.addEventListener("click", () => {
+        const p = recs[Number(el.dataset.recoIndex)];
+        if (!p) return;
+        const images = getImages(p);
+        if (images.length) openLightbox(images, 0, p);
+      });
     });
   }
 
