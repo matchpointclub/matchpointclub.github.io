@@ -1,59 +1,3 @@
-/*
-  DATOS DEL CATÁLOGO
-  -------------------
-  Acá cargás tus productos reales. Cada objeto es un producto
-  (paleta o bolso). Para agregar uno nuevo, copiá un bloque
-  { ... } completo, pegalo antes del corchete final "]" y
-  modificá los valores.
-
-  Campos comunes a TODOS los productos:
-    marca      -> Nombre de marca. Se usa para generar los filtros.
-                  Para bolsos, usá siempre "Bolsos" como marca:
-                  así aparecen agrupados como si fueran otra marca.
-    modelo     -> Nombre del modelo
-    precio     -> Número, sin puntos ni comas (ej: 185000)
-    tipo       -> "paleta" | "bolso"  (define qué ícono se dibuja)
-    color      -> Color de acento de la ficha (código hex)
-    destacado  -> true / false (opcional, muestra "Top ventas")
-    etiqueta   -> Texto corto que va en la pastilla de abajo de la
-                  ficha (para paletas: nivel de juego. Para bolsos:
-                  algo como "Accesorio" o la capacidad)
-    specs      -> Lista de características a mostrar. Cada una es
-                  { label, value } y opcionalmente full:true si
-                  querés que ocupe las dos columnas.
-    imagenes   -> (opcional) Lista de rutas a fotos reales del
-                  producto, ej: ["images/paletas/foto1.png",
-                  "images/paletas/foto2.png"]. Podés poner una
-                  sola o varias: si hay más de una, en la ficha
-                  aparecen puntitos abajo de la foto y el usuario
-                  puede tocar la imagen o deslizar (swipe) para
-                  pasar de una a otra. Si el array queda vacío
-                  ([]), se muestra el ícono dibujado como
-                  placeholder. Ver instrucciones abajo.
-
-  Solo para paletas:
-    forma      -> "Diamante" | "Redonda" | "Lagrima"
-                  (define el dibujo de la cabeza de la paleta,
-                  solo se usa si el producto NO tiene fotos)
-
-  -----------------------------------------------------------
-  CÓMO AGREGAR FOTOS REALES
-  -----------------------------------------------------------
-  1. Guardá la foto del producto (fondo blanco o transparente
-     da mejor resultado) dentro de la carpeta:
-       - paletas -> images/paletas/
-       - bolsos  -> images/bolsos/
-  2. Nombrala fácil de identificar, ej: nox-ml10-pro-cup-1.png,
-     nox-ml10-pro-cup-2.png (si vas a subir más de una).
-  3. En el producto correspondiente, completá el array:
-       imagenes: [
-         "images/paletas/nox-ml10-pro-cup-1.png",
-         "images/paletas/nox-ml10-pro-cup-2.png",
-       ]
-  4. Listo, la ficha va a mostrar las fotos (con slider si hay
-     más de una) en vez del dibujo.
-*/
-
 const PRODUCTS = [
   // ---------------- ADIDAS ----------------
   {
@@ -130,14 +74,14 @@ const PRODUCTS = [
   // ---------------- NOX ----------------
  {
     marca: "Nox", modelo: "AT10 Genius 12K Xtrem 26", precio: 610000, oferta: true, precioAnterior: 700000, 
-    tipo: "paleta", forma: "Lagrima", color: "#F4A300",
+    tipo: "paleta", forma: "Híbrida", color: "#F4A300",
     imagenes: ["images/paletas/at10 12k 26 1.webp",
       "images/paletas/at10 12k 26 2.webp",
       "images/paletas/at10 12k 26 3.webp"
     ],
     destacado: true, etiqueta: "Profesional",
     specs: [
-      { label: "Forma", value: "Lágrima" },
+      { label: "Forma", value: "Híbrida" },
       { label: "Balance", value: "Medio" },
       { label: "Peso", value: "360-375 g" },
       { label: "Núcleo", value: "HR3 Black EVA" },
@@ -164,14 +108,14 @@ const PRODUCTS = [
 },
   {
     marca: "Nox", modelo: "EA10 Ventus Hybrid 12K 26", precio: 600000,
-    tipo: "paleta", forma: "Lagrima", color: "#F4A300",
+    tipo: "paleta", forma: "Híbrida", color: "#F4A300",
     imagenes: ["images/paletas/ea10 hybrid 12k 26 1.webp",
       "images/paletas/ea10 hybrid 12k 26 2.webp",
       "images/paletas/ea10 hybrid 12k 26 3.webp"
     ],
     etiqueta: "Avanzado",
     specs: [
-      { label: "Forma", value: "Lágrima" },
+      { label: "Forma", value: "Híbrida" },
       { label: "Balance", value: "Medio-Alto" },
       { label: "Peso", value: "360-375 g" },
       { label: "Núcleo", value: "MLD Black EVA" },
@@ -345,7 +289,7 @@ const PRODUCTS = [
   },
   {
     marca: "Bullpadel", modelo: "Ionic Light 26", precio: 340000,
-    tipo: "paleta", forma: "Lagrima", color: "#9FCC2E",
+    tipo: "paleta", forma: "Híbrida", color: "#9FCC2E",
     imagenes:  ["images/paletas/ionic light 26 1.webp",
       "images/paletas/ionic light 26 2.webp",
       "images/paletas/ionic light 26 3.webp"
@@ -353,7 +297,7 @@ const PRODUCTS = [
     ],destacado: true,
     etiqueta: "Intermedio",
     specs: [
-      { label: "Forma", value: "Lágrima" },
+      { label: "Forma", value: "Híbrida" },
       { label: "Balance", value: "Medio" },
       { label: "Peso", value: "345-355 g" },
       { label: "Núcleo", value: "MultiEVA" },
@@ -362,7 +306,7 @@ const PRODUCTS = [
   },
   {
   marca: "Bullpadel", modelo: "Neuron TF 24", precio: 425000, precioAnterior: 515000,oferta: true,
-  tipo: "paleta", forma: "Lágrima", color: "#9FCC2E",
+  tipo: "paleta", forma: "Híbrida", color: "#9FCC2E",
   imagenes: [
     "images/paletas/neuron tf 24 1.webp",
     "images/paletas/neuron tf 24 2.webp",
@@ -370,7 +314,7 @@ const PRODUCTS = [
   ],
   etiqueta: "Avanzado",
   specs: [
-    { label: "Forma", value: "Lágrima" },
+    { label: "Forma", value: "Híbrida" },
     { label: "Balance", value: "Medio" },
     { label: "Peso", value: "355-365 g" },
     { label: "Núcleo", value: "MultiEVA" },
@@ -413,7 +357,7 @@ const PRODUCTS = [
 },
 {
   marca: "Bullpadel", modelo: "Vertex 05 Hybrid 26", precio: 480000, precioAnterior: 520000,
-  tipo: "paleta", forma: "Lágrima", color: "#142534",
+  tipo: "paleta", forma: "Híbrida", color: "#142534",
   oferta: true, etiqueta: "Profesional",
   imagenes: [
     "images/paletas/vertex hybrid 26 1.webp",
@@ -421,7 +365,7 @@ const PRODUCTS = [
     "images/paletas/vertex hybrid 26 3.webp"
   ],
   specs: [
-    { label: "Forma", value: "Lágrima" },
+    { label: "Forma", value: "Híbrida" },
     { label: "Balance", value: "Bajo" },
     { label: "Peso", value: "365-375 g" },
     { label: "Núcleo", value: "Multieva" },
@@ -571,14 +515,14 @@ const PRODUCTS = [
   // ---------------- SANÉ ----------------
   {
     marca: "Sané", modelo: "Agressor Evolution Hybrid Alpha", precio: 400000,
-    tipo: "paleta", forma: "Lagrima", color: "#6C63FF",
+    tipo: "paleta", forma: "Híbrida", color: "#6C63FF",
     imagenes: ["images/paletas/evolution alpha 1.webp",
       "images/paletas/evolution alpha 2.webp",
       "images/paletas/evolution alpha 3.webp"
     ],
     destacado: true, etiqueta: "Profesional",
     specs: [
-      { label: "Forma", value: "Híbrida (lagrima)" },
+      { label: "Forma", value: "Híbrida" },
       { label: "Balance", value: "Medio-Alto" },
       { label: "Peso", value: "355-375 g" },
       { label: "Núcleo", value: "PRO HD-R" },
@@ -587,12 +531,12 @@ const PRODUCTS = [
   },
   {
     marca: "Sané", modelo: "Agressor VII Black", precio: 230000,
-    tipo: "paleta", forma: "Lagrima", color: "#6C63FF",
+    tipo: "paleta", forma: "Híbrida", color: "#6C63FF",
     imagenes: ["images/paletas/agressor black 1.webp",
       "images/paletas/agressor black 2.webp"    ],
     etiqueta: "Avanzado",
     specs: [
-      { label: "Forma", value: "Gota o Lágrima" },
+      { label: "Forma", value: "Híbrida" },
       { label: "Balance", value: "Medio-Alto" },
       { label: "Peso", value: "355-375 g" },
       { label: "Núcleo", value: "Híbrido Compacto" },
@@ -618,13 +562,13 @@ const PRODUCTS = [
   },
   {
     marca: "Head", modelo: "Evo Speed 23", precio: 168000, precioAnterior: 190000, oferta: true,
-    tipo: "paleta", forma: "Lagrima", color: "#4CC9F0",
+    tipo: "paleta", forma: "Híbrida", color: "#4CC9F0",
     imagenes: ["images/paletas/evo speed 23 1.webp",
       "images/paletas/evo speed 23 2.webp"
     ],
     etiqueta: "Iniciación",
     specs: [
-      { label: "Forma", value: "Lágrima (oversize)" },
+      { label: "Forma", value: "Híbrida (oversize)" },
       { label: "Balance", value: "Medio (centrado)" },
       { label: "Peso", value: "355-375 g" },
       { label: "Núcleo", value: "Soft Foam" },
@@ -633,13 +577,13 @@ const PRODUCTS = [
   },
  {
   marca: "Head", modelo: "Bolt 26", precio: 190000,
-  tipo: "paleta", forma: "Lágrima", color: "#5E8C61",
+  tipo: "paleta", forma: "Híbrida", color: "#5E8C61",
   imagenes: [
     "images/paletas/bolt 26 1.webp",
     "images/paletas/bolt 26 2.webp"  ],
   etiqueta: "Iniciación",
   specs: [
-    { label: "Forma", value: "Lágrima" },
+    { label: "Forma", value: "Híbrida" },
     { label: "Balance", value: "Medio" },
     { label: "Peso", value: "360 g" },
     { label: "Núcleo", value: "Power Foam" },
@@ -650,7 +594,7 @@ const PRODUCTS = [
   marca: "Head", modelo: "Flash Pro 23", precio: 195000,
   precioAnterior: 215000,
   oferta: true,
-  tipo: "paleta", forma: "Lágrima", color: "#2E86AB",
+  tipo: "paleta", forma: "Híbrida", color: "#2E86AB",
   imagenes: [
     "images/paletas/flash 23 1.webp",
     "images/paletas/flash 23 2.webp",
@@ -658,7 +602,7 @@ const PRODUCTS = [
   ],
   etiqueta: "Intermedio",
   specs: [
-    { label: "Forma", value: "Lágrima" },
+    { label: "Forma", value: "Híbrida" },
     { label: "Balance", value: "Medio" },
     { label: "Peso", value: "365 g" },
     { label: "Núcleo", value: "Power Foam" },
@@ -670,13 +614,13 @@ const PRODUCTS = [
   // --------------- PROGO ----------------
    {
     marca: "Pro Go", modelo: "Gelidis Drive 26", precio: 190000,
-    tipo: "paleta", forma: "Lagrima", color: "#FF5A5F",
+    tipo: "paleta", forma: "Híbrida", color: "#FF5A5F",
     imagenes: ["images/paletas/gelidis 26 1.webp",
       "images/paletas/gelidis 26 2.webp",
     ],
     etiqueta: "Intermedio",
     specs: [
-      { label: "Forma", value: "Lágrima" },
+      { label: "Forma", value: "Híbrida" },
       { label: "Balance", value: "Medio-Bajo" },
       { label: "Peso", value: "355-365 g" },
       { label: "Núcleo", value: "Blitz Core (EVA 30)" },
@@ -718,14 +662,14 @@ const PRODUCTS = [
   },
   {
     marca: "Urich", modelo: "Fusion Hard 26", precio: 260000,
-    tipo: "paleta", forma: "Lagrima", color: "#2EC4B6",
+    tipo: "paleta", forma: "Híbrida", color: "#2EC4B6",
     imagenes: ["images/paletas/fusion hard 26 1.webp",
       "images/paletas/fusion hard 26 2.webp",
       "images/paletas/fusion hard 26 3.webp"
     ],
     etiqueta: "Avanzado",
     specs: [
-      { label: "Forma", value: "Híbrida (Diamante + Lágrima)" },
+      { label: "Forma", value: "Híbrida" },
       { label: "Balance", value: "Medio-Alto" },
       { label: "Peso", value: "360-380 g" },
       { label: "Núcleo", value: "Goma V50 (alta dureza)" },
@@ -734,14 +678,14 @@ const PRODUCTS = [
   },
   {
     marca: "Urich", modelo: "Fusion Flex Gris 26", precio: 290000,
-    tipo: "paleta", forma: "Lagrima", color: "#2EC4B6",
+    tipo: "paleta", forma: "Híbrida", color: "#2EC4B6",
     imagenes: ["images/paletas/fusion flex 26 1.webp",
       "images/paletas/fusion flex 26 2.webp",
       "images/paletas/fusion flex 26 3.webp"
     ],
     destacado: true, etiqueta: "Avanzado",
     specs: [
-      { label: "Forma", value: "Híbrida (Diamante + Lágrima)" },
+      { label: "Forma", value: "Híbrida" },
       { label: "Balance", value: "Medio" },
       { label: "Peso", value: "350-375 g" },
       { label: "Núcleo", value: "EVA 15 (Foam)" },
@@ -870,7 +814,7 @@ const PRODUCTS = [
 },
 {
   marca: "Felina", modelo: "Shadow Hunt", precio: 315000,
-  tipo: "paleta", forma: "Lagrima", color: "#142534",
+  tipo: "paleta", forma: "Híbrida", color: "#142534",
   etiqueta: "Intermedio",
   imagenes: [
     "images/paletas/shadow hunt 1.webp",
@@ -878,7 +822,7 @@ const PRODUCTS = [
     "images/paletas/shadow hunt 3.webp"
   ],
   specs: [
-    { label: "Forma", value: "Lágrima" },
+    { label: "Forma", value: "Híbrida" },
     { label: "Balance", value: "Medio" },
     { label: "Peso", value: "350-370 g" },
     { label: "Núcleo", value: "EVA Black" },
@@ -906,7 +850,7 @@ const PRODUCTS = [
 //-------------------Dropshot----------------//
 {
   marca: "Dropshot", modelo: "Furia Attack 24", precio: 410000,
-  tipo: "paleta", forma: "Lágrima", color: "#FF6600",
+  tipo: "paleta", forma: "Híbrida", color: "#FF6600",
   etiqueta: "Avanzado",
   imagenes: [
     "images/paletas/furia attack 24 1.webp",
@@ -914,7 +858,7 @@ const PRODUCTS = [
     "images/paletas/furia attack 24 3.webp"
   ],
   specs: [
-    { label: "Forma", value: "Lágrima" },
+    { label: "Forma", value: "Híbrida" },
     { label: "Balance", value: "Medio-Alto" },
     { label: "Peso", value: "350-370 g" },
     { label: "Núcleo", value: "EVA Pro" },
@@ -924,7 +868,7 @@ const PRODUCTS = [
 
 {
   marca: "Dropshot", modelo: "Harbour 23", precio: 230000, oferta: true, precioAnterior: 270000,
-  tipo: "paleta", forma: "Lágrima", color: "#2E5A88",
+  tipo: "paleta", forma: "Híbrida", color: "#2E5A88",
   etiqueta: "Avanzado",
   imagenes: [
     "images/paletas/harbour 23 1.webp",
@@ -932,7 +876,7 @@ const PRODUCTS = [
     "images/paletas/harbour 23 3.webp"
   ],
   specs: [
-    { label: "Forma", value: "Lágrima" },
+    { label: "Forma", value: "Híbrida" },
     { label: "Balance", value: "Medio-Alto" },
     { label: "Peso", value: "350-380 g" },
     { label: "Núcleo", value: "EVA Soft (baja densidad)" },
@@ -940,7 +884,6 @@ const PRODUCTS = [
   ],
 },
   // ---------------- BOLSOS ----------------
-  // marca siempre "Bolsos" para que aparezcan agrupados en su propio filtro
   {
   marca: "Bullpadel", modelo: "Mochila Advance 26", precio: 110000,
   tipo: "bolso", color: "#B08968",
