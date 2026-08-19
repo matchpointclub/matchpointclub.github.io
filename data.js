@@ -1002,7 +1002,44 @@ const PRODUCTS = [
     { label: "Material", value: "Poliéster 1680D", full: true },
   ],
 },
+{
+  marca: "Varlion", modelo: "Summum", precio: 185000,
+  tipo: "bolso", color: "#1E1E1E",
+  destacado: true, etiqueta: "Mediano",
+  imagenes: [
+    "images/bolsos/summum 1.webp",
+    "images/bolsos/summum 2.webp",
+    "images/bolsos/summum 3.webp",
+    "images/bolsos/summum 4.webp",
+    "images/bolsos/summum 5.webp",
+    "images/bolsos/summum 6.webp",
+    "images/bolsos/summum 7.webp"
+  ],
+  specs: [
+    
+    { label: "Tamaño", value: "Mediano" },
+    { label: "Térmico", value: "No" },
+    { label: "Tipo", value: "Paletero" },
+    { label: "Material", value: "Nylon resistente y acolchado", full: true },
+  ],
+},
 
+{
+  marca: "Varlion", modelo: "Summum Pro", precio: 200000, oferta: true, precioAnterior: 225000,
+  tipo: "bolso", color: "#2E2E2E",
+  destacado: true, etiqueta: "Grande",
+  imagenes: [
+    "images/bolsos/summum pro 1.webp",
+    "images/bolsos/summum pro 2.webp",
+    "images/bolsos/summum pro 3.webp"  ],
+  specs: [
+    
+    { label: "Tamaño", value: "Grande" },
+    { label: "Térmico", value: "Sí" },
+    { label: "Tipo", value: "Paletero" },
+    { label: "Material", value: "Nylon resistente y acolchado", full: true },
+  ],
+},
 {
   marca: "Nox", modelo: "ML10 Team", precio: 170000,
   tipo: "bolso", color: "#B08968",
@@ -1103,7 +1140,22 @@ const PRODUCTS = [
     { label: "Material", value: "Nylon Dobby + neopreno", full: true },
   ],
 },
-
+{
+  marca: "Bullpadel", modelo: "Vertex Geo Premier 26", precio: 170000,
+  tipo: "bolso", color: "#111111",
+  etiqueta: "Grande",
+  imagenes: [
+    "images/bolsos/mochi vertex geo 26 1.webp",
+    "images/bolsos/mochi vertex geo 26 2.webp",
+    "images/bolsos/mochi vertex geo 26 3.webp"
+  ],
+  specs: [
+    { label: "Tamaño", value: "Grande" },
+    { label: "Térmico", value: "Sí (hasta 2 palas)" },
+    { label: "Tipo", value: "Mochila" },
+    { label: "Material", value: "Nylon Dobby + neopreno", full: true },
+  ],
+},
 {
   marca: "Bullpadel", modelo: "Ionic 26", precio: 145000,
   tipo: "bolso", color: "#1A1A1A",
