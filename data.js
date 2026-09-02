@@ -239,7 +239,7 @@ const PRODUCTS = [
     ],
   },
   {
-    marca: "Bullpadel", modelo: "XPLO Comfort 26", precio: 345000,
+    marca: "Bullpadel", modelo: "XPLO Comfort 26", precio: 365000,
     tipo: "paleta", forma: "Diamante", color: "#9FCC2E",
     imagenes:  ["images/paletas/xplo comfort 26 1.webp",
       "images/paletas/xplo comfort 26 2.webp",
