@@ -511,6 +511,42 @@ const PRODUCTS = [
     { label: "Cara", value: "Polyglass (fibra de vidrio)", full: true },
   ],
 },
+ // ---------------- Siux ----------------
+
+{
+    marca: "Siux", modelo: "Fenix Pro 26", precio: 440000,
+    tipo: "paleta", forma: "Diamante", color: "#2EC4B6",
+    imagenes: [
+      "images/paletas/fenix pro 26 1.webp",
+      "images/paletas/fenix pro 26 2.webp",
+      "images/paletas/fenix pro 26 3.webp"
+    ],
+    etiqueta: "Avanzado",
+    specs: [
+      { label: "Forma", value: "Diamante" },
+      { label: "Balance", value: "Alto" },
+      { label: "Peso", value: "355-375 g" },
+      { label: "Núcleo", value: "EVA Hard" },
+      { label: "Cara", value: "Fibra de Carbono 12K", full: true },
+    ],
+  },
+  {
+    marca: "Siux", modelo: "Electra Pro 26", precio: 440000,
+    tipo: "paleta", forma: "Lágrima", color: "#2EC4B6",
+    imagenes: [
+      "images/paletas/electra pro 26 1.webp",
+      "images/paletas/electra pro 26 2.webp",
+      "images/paletas/electra pro 26 3.webp"
+    ],
+    etiqueta: "Avanzado",
+    specs: [
+      { label: "Forma", value: "Lágrima" },
+      { label: "Balance", value: "Medio" },
+      { label: "Peso", value: "355-375 g" },
+      { label: "Núcleo", value: "EVA Hard" },
+      { label: "Cara", value: "Fibra de Carbono 12K", full: true },
+    ],
+  },
 
   // ---------------- SANÉ ----------------
   {
