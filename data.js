@@ -692,6 +692,58 @@ const PRODUCTS = [
       { label: "Cara", value: "Fibra de Carbono 3K", full: true },
     ],
   },
+  {
+    marca: "Urich", modelo: "Dropper Pro 12K", precio: 280000,
+    tipo: "paleta", forma: "Diamante", color: "#2EC4B6",
+    imagenes: [
+      "images/paletas/dropper pro rosa 1.webp",
+      "images/paletas/dropper pro rosa 2.webp",
+      "images/paletas/dropper pro rosa 3.webp"
+    ],
+    etiqueta: "Avanzado",
+    specs: [
+      { label: "Forma", value: "Diamante" },
+      { label: "Balance", value: "Alto" },
+      { label: "Peso", value: "345-375 g" },
+      { label: "Núcleo", value: "EVA Soft" },
+      { label: "Cara", value: "Fibra de Carbono 12K", full: true },
+    ],
+  },
+  {
+    marca: "Urich", modelo: "Dropper Soft 26", precio: 300000,
+    tipo: "paleta", forma: "Diamante", color: "#2EC4B6",
+    imagenes: [
+      "images/paletas/dropper soft 26 1.webp",
+      "images/paletas/dropper soft 26 2.webp",
+      "images/paletas/dropper soft 26 3.webp",
+      "images/paletas/dropper soft 26 4.webp"
+    ],
+    etiqueta: "Avanzado",
+    specs: [
+      { label: "Forma", value: "Diamante" },
+      { label: "Balance", value: "Alto" },
+      { label: "Peso", value: "345-375 g" },
+      { label: "Núcleo", value: "EVA 30 Soft (dureza media)" },
+      { label: "Cara", value: "Fibra de Carbono 12K", full: true },
+    ],
+  },
+  {
+    marca: "Urich", modelo: "Iron Pro 12K", precio: 260000,
+    tipo: "paleta", forma: "Redonda", color: "#2EC4B6",
+    imagenes: [
+      "images/paletas/iron pro 12k 1.webp",
+      "images/paletas/iron pro 12k 2.webp",
+      "images/paletas/iron pro 12k 3.webp"
+    ],
+    etiqueta: "Avanzado",
+    specs: [
+      { label: "Forma", value: "Redonda" },
+      { label: "Balance", value: "Bajo" },
+      { label: "Peso", value: "350-375 g" },
+      { label: "Núcleo", value: "EVA 30 Soft" },
+      { label: "Cara", value: "Fibra de Carbono 12K", full: true },
+    ],
+  },
  // ---------------- VARLION ----------------
   {
     marca: "Varlion", modelo: "LW Hexagon 8.8 23", precio: 135000, precioAnterior: 165000, oferta: true,
