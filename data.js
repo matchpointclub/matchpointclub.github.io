@@ -511,7 +511,7 @@ const PRODUCTS = [
     { label: "Cara", value: "Polyglass (fibra de vidrio)", full: true },
   ],
 },
- // ---------------- Siux ----------------
+  // ---------------- Siux ----------------
 
 {
     marca: "Siux", modelo: "Fenix Pro 26", precio: 440000,
@@ -1128,6 +1128,28 @@ const PRODUCTS = [
     { label: "Material", value: "Nylon resistente y acolchado", full: true },
   ],
 },
+{
+    marca: "Varlion", modelo: "Ergonomic Begins", precio: 100000,
+    tipo: "bolso", color: "#B08968",
+    etiqueta: "Mediano",
+    imagenes: [
+      "images/bolsos/varlion begins 1.webp",
+      "images/bolsos/varlion begins 2.webp",
+      "images/bolsos/varlion begins 3.webp",
+      "images/bolsos/varlion begins 4.webp",
+      "images/bolsos/varlion begins 5.webp",
+      "images/bolsos/varlion begins 6.webp"
+    ],
+    specs: [
+      { label: "Tamaño", value: "34 litros" },
+      { label: "Térmico", value: "Sí" },
+      { label: "Tipo", value: "Paletero" },
+      { label: "Material", value: "Nailon resistente e impermeable", full: true },
+      { label: "Capacidad", value: "1 paleta" },
+      { label: "Compartimento", value: "Para zapatillas" },
+      { label: "Medidas", value: "54,9 × 28,6 × 29 cm", full: true },
+    ],
+  },
 {
   marca: "Nox", modelo: "ML10 Team", precio: 170000,
   tipo: "bolso", color: "#B08968",
